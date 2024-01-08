@@ -1,0 +1,27 @@
+.title {
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .title-container {
+        padding: 2em;
+    }
+    .title {
+        font-size: 10vw !important;
+    }
+    .subtitle {
+        font-size: 6vw !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .title-container {
+        padding: 5em;
+    }
+    .title {
+        font-size: 5vw !important;
+    }
+    .subtitle {
+        font-size: 3vw !important;
+    }
+}
