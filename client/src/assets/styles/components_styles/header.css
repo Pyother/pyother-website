@@ -1,0 +1,17 @@
+.title {
+    padding-top: 1em;
+}
+
+.subtitle {
+    padding-bottom: 2em;
+}
+
+.media-stack {
+    display: flex;
+    justify-content: end;
+}
+
+.navigation-stack {
+    display: flex;
+    justify-content: start;
+}

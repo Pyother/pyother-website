@@ -1,0 +1,19 @@
+@import './layout.css';
+@import './utils.css';
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-bg: black;
+    --secondary-bg: white;
+}
+
+.app {
+    width: 100%;
+    min-height: 100vh;
+    height: fit-content;
+}

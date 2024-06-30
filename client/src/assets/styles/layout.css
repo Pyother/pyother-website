@@ -1,0 +1,28 @@
+@import './components_styles/content.css';
+@import './components_styles/header.css';
+
+.header {
+    background-color: var(--primary-bg);
+    color: white;
+}
+
+.content {
+    min-height: --webkit-fill-available !important;
+}
+
+.footer {
+    background-color: var(--primary-bg);
+    color: white;
+}
+
+@media (max-width: 1000px) {
+    .header, .content, .footer {
+        padding: 1em 1em;
+    }
+}
+
+@media (min-width: 1000px) {
+    .header, .content, .footer {
+        padding: 1em 10em;
+    }
+}

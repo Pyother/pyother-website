@@ -1,0 +1,13 @@
+button {
+    color: lightgreen !important;
+}
+
+.padding-1em {
+    padding: 1em;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
