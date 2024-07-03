@@ -1,9 +1,13 @@
-import path from 'path';
+const path = require('path');
+const express = require('express');
 
 const createRoutes = (app) => {
-    app.get('/', (req, res) => {
-        res.send('Hello World!')
-    })
+
+    app.use(express.static(path.join(__dirname, '../../client/build')));
+
+    app.get('/', (request, response) => {
+        response.sendFile(path.join(__dirname, '../../client/build/index.html'));
+    });
 }
 
 module.exports = createRoutes;
