@@ -10,6 +10,7 @@ const setupDB = async (uri) => {
     await client.connect();
     console.log('Database connected ✅');
 
+    return client;
 }
 
 module.exports = setupDB;
