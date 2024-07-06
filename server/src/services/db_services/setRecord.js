@@ -77,8 +77,10 @@ const addProject = async () => {
         project.name = name;
         rl.question('↪ Opis: ', (description) => {
             project.description = description;
-            rl.question('↪ Wykorzystane technologie: ', (technologies) => {
-                project.technologies = technologies;
+            rl.question('↪ Wykorzystane technologie (np. js python -> oddzielone spacją): ', (technologies) => {
+                    
+                project.technologies = technologies.split(' ');
+            
                 rl.question('↪ Link do repozytorium na Githubie: ', (github) => {
                     project.github = github;
                     rl.question('↪ Status (true/false): ', (status) => {
