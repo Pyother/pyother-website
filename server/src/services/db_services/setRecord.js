@@ -66,7 +66,8 @@ const addProject = async () => {
         description: null,
         technologies: null,
         github: null,
-        status: null,
+        finished: null,
+        public: null,
         photo: null
     };
 
@@ -78,9 +79,7 @@ const addProject = async () => {
         rl.question('↪ Opis: ', (description) => {
             project.description = description;
             rl.question('↪ Wykorzystane technologie (np. js python -> oddzielone spacją): ', (technologies) => {
-                    
                 project.technologies = technologies.split(' ');
-            
                 rl.question('↪ Link do repozytorium na Githubie: ', (github) => {
                     project.github = github;
                     rl.question('↪ Status (true/false): ', (status) => {
@@ -90,8 +89,16 @@ const addProject = async () => {
                         } else {
                             project.status = parseBoolean(status);
                         }
-                        rl.question('↪ Podaj nazwę grafiki: ', async (imageName) => {
-                            findImage(imageName, project);
+                        rl.question('↪ Czy projekt jest publiczny (true/false): ', (public) => {
+                            if(parseBoolean(public) !== true && parseBoolean(public) !== false) {
+                                logWithColor('Status musi mieć wartość logiczną.', 'red');
+                                process.exit(0);
+                            } else {
+                                project.public = parseBoolean(public);
+                            }
+                            rl.question('↪ Podaj nazwę grafiki: ', async (imageName) => {
+                                findImage(imageName, project);
+                            });
                         });
                     });
                 });

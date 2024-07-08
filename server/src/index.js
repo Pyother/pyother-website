@@ -9,7 +9,7 @@ require('dotenv').config();
 const mongoUri = process.env.MONGODB_URI;
 
 const app = express();
-const port = 3000;
+const port = 50000;
 
 // * CORS:
 app.use(cors());
