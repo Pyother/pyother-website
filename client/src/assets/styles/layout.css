@@ -1,5 +1,6 @@
 @import './components_styles/content.css';
 @import './components_styles/header.css';
+@import './components_styles/project_item.css';
 
 .header {
     background-color: var(--primary-bg);

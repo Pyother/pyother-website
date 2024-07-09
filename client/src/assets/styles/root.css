@@ -10,6 +10,8 @@ body {
 :root {
     --primary-bg: black;
     --secondary-bg: white;
+    --border-radius: 0.25em;
+    
 }
 
 .app {

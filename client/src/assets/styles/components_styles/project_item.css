@@ -1,0 +1,16 @@
+.project-item {
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px solid;
+}
+
+.photo-container {
+    border: 1px solid;
+    margin-bottom: 1em;
+}
+
+.photo {
+    height: 8em;
+    width: 8em;
+    margin: 1em;
+}
