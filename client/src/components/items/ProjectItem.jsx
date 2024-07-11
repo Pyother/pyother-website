@@ -5,9 +5,14 @@ import React from 'react';
 import { 
     Stack,
     Typography,
+    Chip,
+    Avatar,
 } from '@mui/material';
 
-const ProjectItem = ({ name, description, photo }) => {
+// * Own components:
+import findIcon from '../../services/data_display/findIcon';
+
+const ProjectItem = ({ name, description, photo, technologies }) => {
     return (
         <Stack className="project-item">
             <div className="photo-container center">
@@ -15,6 +20,31 @@ const ProjectItem = ({ name, description, photo }) => {
             </div>
             <Typography variant="h6" className="project-title">{name}</Typography>
             <p>{description}</p>
+            <Stack direction="row" spacing={1}>
+                {
+                    technologies.map((technology) => {
+                        const iconData = findIcon(technology.toLowerCase());
+                        if (iconData) {
+                            const { icon: IconComponent, backgroundColor, color } = iconData;
+                            return (
+                                <Chip
+                                    className='chip'
+                                    clickable
+                                    key={technology}
+                                    avatar={
+                                        <Avatar style={{ backgroundColor, fontSize: 'larger' }}>
+                                            <IconComponent style={{ color }} />
+                                        </Avatar>
+                                    }
+                                    label={technology}
+                                    variant="outlined"
+                                />
+                            );
+                        }
+                        return <Chip key={technology} label={technology} variant="outlined" />;
+                    })
+                }
+            </Stack>
         </Stack>
     )
 }

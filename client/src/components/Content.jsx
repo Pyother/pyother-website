@@ -1,5 +1,5 @@
 // * React and Redux:
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 // * MUI:
@@ -31,6 +31,7 @@ export const Content = () => {
                                 name={project.name}
                                 description={project.description}
                                 photo={project.photo}
+                                technologies={project.technologies}
                             />
                         </Grid>
                     ))}

@@ -10,8 +10,9 @@ body {
 :root {
     --primary-bg: black;
     --secondary-bg: white;
+    --accent-color: navy;
     --border-radius: 0.25em;
-    
+    --chip-bg: #f0f0f0;
 }
 
 .app {

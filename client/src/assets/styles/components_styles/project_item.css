@@ -1,11 +1,15 @@
 .project-item {
     padding: 1em;
     margin-bottom: 1em;
-    border: 1px solid;
+    /*border: 1px solid;*/
+}
+
+.project-title {
+    font-weight: bold;
 }
 
 .photo-container {
-    border: 1px solid;
+    /*border: 1px solid;*/
     margin-bottom: 1em;
 }
 
@@ -13,4 +17,13 @@
     height: 8em;
     width: 8em;
     margin: 1em;
+}
+
+.chip {
+    border: 0 !important;
+    background-color: var(--chip-bg) !important;
+}
+
+.avatar {
+    font-size: larger !important;
 }
