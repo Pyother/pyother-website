@@ -1,7 +1,8 @@
 .project-item {
     padding: 1em;
     margin-bottom: 1em;
-    /*border: 1px solid;*/
+    /*border: var(--border);*/
+    border-radius: var(--border-radius);
 }
 
 .project-title {
@@ -9,7 +10,8 @@
 }
 
 .photo-container {
-    /*border: 1px solid;*/
+    background-color: var(--photo-bg);
+    border-radius: var(--border-radius);
     margin-bottom: 1em;
 }
 

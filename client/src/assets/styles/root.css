@@ -10,8 +10,10 @@ body {
 :root {
     --primary-bg: black;
     --secondary-bg: white;
+    --photo-bg: #f0f0f0;
     --accent-color: navy;
     --border-radius: 0.25em;
+    --border: 2px solid lightgrey;
     --chip-bg: #f0f0f0;
 }
 

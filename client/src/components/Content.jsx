@@ -32,6 +32,9 @@ export const Content = () => {
                                 description={project.description}
                                 photo={project.photo}
                                 technologies={project.technologies}
+                                githubPage={project.github}
+                                isPublic={project.public}
+                                status={project.status}
                             />
                         </Grid>
                     ))}
