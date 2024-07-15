@@ -1,5 +1,13 @@
 button {
-    color: lightgreen !important;
+    box-shadow: none !important;
+}
+
+.classic-button {
+    background: var(--accent-color) !important;
+}
+
+.icon-button {
+    color: var(--accent-color) !important;
 }
 
 .padding-1em {
@@ -10,4 +18,9 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.selected {
+    background: var(--selected-bg) !important;
+    color: var(--accent-color-dark) !important;
 }

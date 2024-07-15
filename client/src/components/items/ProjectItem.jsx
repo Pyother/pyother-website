@@ -65,7 +65,8 @@ const ProjectItem = ({ name, description, photo, technologies, githubPage, isPub
                 }
             </Stack>
             <Tooltip title="Pokaż wiecej" arrow>
-                <IconButton className="more-button" 
+                <IconButton 
+                    className="more-button icon-button" 
                     disableRipple
                     disableFocusRipple
                     onClick = {() => window.location.href = githubPage }

@@ -16,13 +16,13 @@ export const Header = () => {
     return (
         <Stack className="header">
             <Stack direction="row" spacing={2} className="media-stack">
-                <IconButton>
+                <IconButton className="icon-button">
                     <FacebookIcon />
                 </IconButton>
-                <IconButton>
+                <IconButton className="icon-button">
                     <InstagramIcon />
                 </IconButton>
-                <IconButton>
+                <IconButton className="icon-button">
                     <GitHubIcon />
                 </IconButton>
             </Stack>
@@ -33,10 +33,10 @@ export const Header = () => {
                 Frontend Developer
             </Typography>
             <Stack direction="row" spacing={2} className="navigation-stack">
-                <Button>
+                <Button className="icon-button">
                     Projekty
                 </Button>
-                <Button>
+                <Button className="icon-button">
                     Fotografia
                 </Button>
             </Stack>

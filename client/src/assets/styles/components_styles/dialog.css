@@ -1,0 +1,5 @@
+.button-container {
+    width: 100%;
+    padding: 1em 0em;
+    background-color: var(--secondary-bg);
+}

@@ -9,12 +9,12 @@ body {
 
 :root {
     --primary-bg: black;
-    --secondary-bg: white;
-    --photo-bg: #f0f0f0;
-    --accent-color: navy;
+    --secondary-bg: #f0f0f0;
+    --selected-bg: #d6d6d6;
+    --accent-color: #cfdef3;
+    --accent-color-dark: #003366;
     --border-radius: 0.25em;
-    --border: 2px solid lightgrey;
-    --chip-bg: #f0f0f0;
+    --border: 2px solid lightgrey !important;
 }
 
 .app {
