@@ -45,17 +45,11 @@ const ProjectItem = ({ name, description, photo, technologies, githubPage, isPub
             </Grid>
             <Typography variant="h6" className="project-title">{name}</Typography>
             <p>{description}</p>
-            <Chip
-                className="chip"
-                avatar={
-                    <Avatar className="avatar" style={{background: 'inherit'}}>
-                        <PiGitCommitDuotone />
-                    </Avatar>
-                }
-                label={lastCommitFormatted}
-                variant="outlined"
-                style={{marginBottom: '1em', width: 'fit-content'}}
-            />
+            <p style={{color: 'grey', margin: '0', fontSize: 'small'}}>Ostatnia aktualizacja</p>
+            <Stack direction="row" spacing={1} style={{marginTop: '0.5em', marginBottom: '1em'}}>
+                <PiGitCommitDuotone />
+                <p style={{fontSize: 'small'}}>{lastCommitFormatted}</p>
+            </Stack>
             <Stack direction="row" spacing={1}>
                 {
                     technologies.map((technology) => {

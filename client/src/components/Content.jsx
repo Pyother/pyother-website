@@ -15,10 +15,19 @@ import {
     Chip,
     Avatar,
     Button,
+    RadioGroup,
+    Radio,
+    Checkbox,
+    FormControlLabel,
 } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
 import { VscSettings } from "react-icons/vsc";
+import { BsSortDown } from "react-icons/bs";
+import { BsSortUp } from "react-icons/bs";
+import { PiRadioButtonThin } from "react-icons/pi";
 
 // * Own components:
+import colorsTheme from '../assets/themes/colorsTheme';
 import ProjectItem from './items/ProjectItem';
 import StyledDialog from './styled_components/StyledDialog';
 import findIcon from '../services/data_display/findIcon';
@@ -48,7 +57,7 @@ export const Content = () => {
     );
 
     return (
-        <>
+        <ThemeProvider theme={colorsTheme}>
             <StyledDialog
                 open={sortDialogOpen}
                 handleClose={() => setSortDialogOpen(false)}
@@ -91,6 +100,29 @@ export const Content = () => {
                                 } else return <></>
                             })}
                         </Stack>
+                        <Typography variant="p">Commity (tylko projekty prywatne)</Typography>
+                        <RadioGroup style={{marginTop: '0.5em'}}>
+                            <FormControlLabel 
+                                value="down" 
+                                control={<Checkbox color="primary"/>} 
+                                label={
+                                    <Stack direction="row" className="center" spacing={1}>
+                                        <BsSortDown />
+                                        <p>Od najnowszego</p>
+                                    </Stack>
+                                }
+                            />
+                            <FormControlLabel 
+                                value="up" 
+                                control={<Checkbox color="primary"/>} 
+                                label={
+                                    <Stack direction="row" className="center" spacing={1}>
+                                        <BsSortUp />
+                                        <p>Od najstarszego</p>
+                                    </Stack>
+                                } 
+                            />
+                        </RadioGroup>
                     </Stack>
                 }
                 handleButton={() => {
@@ -144,6 +176,6 @@ export const Content = () => {
                     Fotografia
                 </Typography>
             </Stack>
-        </>
+        </ThemeProvider>
     )
 }
