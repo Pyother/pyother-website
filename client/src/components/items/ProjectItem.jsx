@@ -13,12 +13,18 @@ import {
 } from '@mui/material';
 import { IoIosMore } from "react-icons/io";
 import { IoHourglassOutline } from "react-icons/io5";
+import { PiGitCommitDuotone } from "react-icons/pi";
 import { MdDone } from "react-icons/md";
 
 // * Own components:
 import findIcon from '../../services/data_display/findIcon';
 
-const ProjectItem = ({ name, description, photo, technologies, githubPage, isPublic, status }) => {
+// * Other:
+import moment from 'moment';
+
+const ProjectItem = ({ name, description, photo, technologies, githubPage, isPublic, status, lastCommit }) => {
+
+    const lastCommitFormatted = lastCommit ? moment(lastCommit).format('DD.MM.YYYY HH:mm:ss') : 'Brak danych';
 
     return (
         <Stack className="project-item">
@@ -39,6 +45,17 @@ const ProjectItem = ({ name, description, photo, technologies, githubPage, isPub
             </Grid>
             <Typography variant="h6" className="project-title">{name}</Typography>
             <p>{description}</p>
+            <Chip
+                className="chip"
+                avatar={
+                    <Avatar className="avatar" style={{background: 'inherit'}}>
+                        <PiGitCommitDuotone />
+                    </Avatar>
+                }
+                label={lastCommitFormatted}
+                variant="outlined"
+                style={{marginBottom: '1em', width: 'fit-content'}}
+            />
             <Stack direction="row" spacing={1}>
                 {
                     technologies.map((technology) => {

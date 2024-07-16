@@ -134,6 +134,7 @@ export const Content = () => {
                                     githubPage={project.github}
                                     isPublic={project.public}
                                     status={project.status}
+                                    lastCommit={project.last_commit}
                                 />
                             </Grid>
                         ))}

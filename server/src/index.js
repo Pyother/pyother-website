@@ -26,6 +26,11 @@ connection.once('open', () => {
 // * Routes:
 createRoutes(app);
 
+// * Cron jobs:
+const projectsUpdateTask = require('./cron/projectsUpdateTask');
+
+projectsUpdateTask.start();
+
 // * Server start:
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

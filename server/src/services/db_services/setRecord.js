@@ -66,9 +66,9 @@ const addProject = async () => {
         description: null,
         technologies: null,
         github: null,
-        finished: null,
         public: null,
-        photo: null
+        photo: null,
+        last_commit: null,
     };
 
     logWithColor('================== NOWY REKORD ==================', 'bgWhite');

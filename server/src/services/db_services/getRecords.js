@@ -9,7 +9,6 @@ const dbname = process.env.DB_NAME;
 const client = new MongoClient(mongoUri);
 
 const getRecords = async (collectionName) => {
-    
     try {
         await client.connect();
         const db = client.db(dbname);
