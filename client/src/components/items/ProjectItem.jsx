@@ -1,5 +1,6 @@
 // * React and Redux:
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 // * MUI & React Icons:
 import { 
@@ -22,8 +23,9 @@ import findIcon from '../../services/data_display/findIcon';
 // * Other:
 import moment from 'moment';
 
-const ProjectItem = ({ name, description, photo, technologies, githubPage, isPublic, status, lastCommit }) => {
+const ProjectItem = ({ name, description, photo, technologies, githubPage, isPublic, status, lastCommit, onTechnologyClick }) => {
 
+    const selectedTechnologies = useSelector(state => state.selectedTechnologies.value) || [];
     const lastCommitFormatted = lastCommit ? moment(lastCommit).format('DD.MM.YYYY HH:mm:ss') : 'Brak danych';
 
     return (
@@ -50,7 +52,7 @@ const ProjectItem = ({ name, description, photo, technologies, githubPage, isPub
                 <PiGitCommitDuotone />
                 <p style={{fontSize: 'small'}}>{lastCommitFormatted}</p>
             </Stack>
-            <Stack direction="row" spacing={1}>
+            <Stack direction="row" spacing={1} style={{flexWrap: 'wrap'}}>
                 {
                     technologies.map((technology) => {
                         const iconData = findIcon(technology.toLowerCase());
@@ -58,7 +60,7 @@ const ProjectItem = ({ name, description, photo, technologies, githubPage, isPub
                             const { icon: IconComponent, backgroundColor, color } = iconData;
                             return (
                                 <Chip
-                                    className='chip'
+                                    className={selectedTechnologies.includes(technology) ? 'chip selected' : 'chip'}
                                     clickable
                                     key={technology}
                                     avatar={
@@ -68,10 +70,16 @@ const ProjectItem = ({ name, description, photo, technologies, githubPage, isPub
                                     }
                                     label={technology}
                                     variant="outlined"
+                                    onClick={() => {onTechnologyClick(technology)}}
+                                    style={{marginBottom: '0.5em'}}
                                 />
                             );
                         }
-                        return <Chip key={technology} label={technology} variant="outlined" />;
+                        return <Chip 
+                            key={technology} 
+                            label={technology}
+                            variant="outlined"
+                        />;
                     })
                 }
             </Stack>

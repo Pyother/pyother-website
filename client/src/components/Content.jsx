@@ -18,6 +18,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { VscSettings } from "react-icons/vsc";
 import { BsSortDown } from "react-icons/bs";
 import { BsSortUp } from "react-icons/bs";
+import { TbClearAll } from "react-icons/tb";
 
 // * Own components:
 import colorsTheme from '../assets/themes/colorsTheme';
@@ -32,15 +33,11 @@ export const Content = () => {
     const selectedTechnologies = useSelector(state => state.selectedTechnologies.value) || [];
     const [sortDialogOpen, setSortDialogOpen] = useState(false);
     const [technologies, setTechnologies] = useState([]);
-
-    // Rzeczywiste wartości sortowania i filtrowania
     const [actualState, setActualState] = useState({
         technologies: selectedTechnologies,
         ascendingSort: false,
         descendingSort: false
     });
-
-    // Tymczasowe wartości sortowania i filtrowania
     const [tempState, setTempState] = useState({
         technologies: selectedTechnologies,
         ascendingSort: false,
@@ -139,7 +136,7 @@ export const Content = () => {
                                         color="primary"
                                         checked={tempState.descendingSort}
                                         onChange={() => handleCheckboxChange('descending')}
-                                    />} 
+                                    />}
                                 label={
                                     <Stack direction="row" className="center" spacing={1}>
                                         <BsSortDown />
@@ -190,6 +187,85 @@ export const Content = () => {
                     </Grid>
                 </Grid>
                 {
+                    !actualState.ascendingSort && !actualState.descendingSort && selectedTechnologies.length === 0 ? 
+                    <></> :
+                    <>
+                        <Stack 
+                            direction="row" 
+                            spacing={1} 
+                            style={{padding: '0em 1em', marginBottom: '1em', display: 'flex', alignItems: 'center'}}
+                        >
+                            <Typography variant="p">Filtry</Typography>
+                            <Chip
+                                className="chip"
+                                clickable
+                                avatar={
+                                    <Avatar className="avatar" style={{background: 'inherit !important'}}>
+                                        <TbClearAll />
+                                    </Avatar>
+                                }
+                                label="Wyczyść"
+                                style={{background: 'inherit !important', color: 'grey'}}
+                                onClick={() => {
+                                    setActualState({
+                                        technologies: [],
+                                        ascendingSort: false,
+                                        descendingSort: false
+                                    });
+                                    dispatch(setSelectedTechnologies([]));
+                                    setTempState({
+                                        technologies: [],
+                                        ascendingSort: false,
+                                        descendingSort: false
+                                    });
+                                }}
+                            />
+                        </Stack>
+                        <Stack 
+                            direction="row" 
+                            spacing={1} 
+                            style={{padding: '0em 1em', marginBottom: '1em', display: 'flex', alignItems: 'center'}}
+                        >
+                            {
+                            actualState.technologies.map((technology) => {
+                                const iconData = findIcon(technology.toLowerCase());
+                                    if (iconData) {
+                                        const { icon: IconComponent, backgroundColor, color } = iconData;
+                                        return (
+                                            <Chip
+                                                className="chip"
+                                                clickable
+                                                key={technology}
+                                                avatar={
+                                                    <Avatar style={{ backgroundColor, fontSize: 'larger' }}>
+                                                        <IconComponent style={{ color }} />
+                                                    </Avatar>
+                                                }
+                                                label={technology}
+                                                variant="outlined"
+                                                style={{ 
+                                                    marginBottom: '0.5em'
+                                                }}
+                                                onDelete={() => {
+                                                    setTempState((prevState) => ({
+                                                        ...prevState,
+                                                        technologies: prevState.technologies.filter((tech) => tech !== technology)
+                                                    }));
+                                                    setActualState((prevState) => ({
+                                                        ...prevState,
+                                                        technologies: prevState.technologies.filter((tech) => tech !== technology)
+                                                    }));
+                                                    dispatch(setSelectedTechnologies(selectedTechnologies.filter((tech) => tech !== technology)));
+                                                }}
+                                            />
+                                        )
+                                    } else return <></>
+                                })
+                            }
+                        </Stack>
+                    </>
+                }
+                {
                     (projectsData.status === 'idle' || projectsData.status === 'error') ?
                     <>Ładowanie ...</> : 
                     <Grid container spacing={3}>
@@ -204,6 +280,30 @@ export const Content = () => {
                                     isPublic={project.public}
                                     status={project.status}
                                     lastCommit={project.last_commit}
+                                    onTechnologyClick={(technology) => {
+                                        if (!selectedTechnologies.includes(technology)) {
+                                            setTempState((prevState) => ({
+                                                ...prevState,
+                                                technologies: [...prevState.technologies, technology]
+                                            }));
+                                            setActualState((prevState) => ({
+                                                ...prevState,
+                                                technologies: [...prevState.technologies, technology]
+                                            }));
+                                            dispatch(setSelectedTechnologies([...selectedTechnologies, technology]));
+                                        }
+                                        if(selectedTechnologies.includes(technology)) {
+                                            setTempState((prevState) => ({
+                                                ...prevState,
+                                                technologies: prevState.technologies.filter((tech) => tech !== technology)
+                                            }));
+                                            setActualState((prevState) => ({
+                                                ...prevState,
+                                                technologies: prevState.technologies.filter((tech) => tech !== technology)
+                                            }));
+                                            dispatch(setSelectedTechnologies(selectedTechnologies.filter((tech) => tech !== technology)));
+                                        }
+                                    }}
                                 />
                             </Grid>
                         ))}
