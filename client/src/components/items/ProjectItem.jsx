@@ -20,11 +20,15 @@ import { MdDone } from "react-icons/md";
 // * Own components:
 import findIcon from '../../services/data_display/findIcon';
 
+// * Translations: 
+import { useTranslation } from 'react-i18next';
+
 // * Other:
 import moment from 'moment';
 
 const ProjectItem = ({ name, description, photo, technologies, githubPage, isPublic, status, lastCommit, onTechnologyClick }) => {
 
+    const { t } = useTranslation();
     const selectedTechnologies = useSelector(state => state.selectedTechnologies.value) || [];
     const lastCommitFormatted = lastCommit ? moment(lastCommit).format('DD.MM.YYYY HH:mm:ss') : 'Brak danych';
 
@@ -36,10 +40,21 @@ const ProjectItem = ({ name, description, photo, technologies, githubPage, isPub
             <Grid container>
                 <Grid item xs={11} md={11}>
                     <p style={{color: 'grey', margin: '0', fontSize: 'small'}}>
-                        {isPublic ? 'Projekt służbowy' : 'Projekt prywatny'}
+                        {   
+                            isPublic ? 
+                            t('content.project_item.public') : 
+                            t('content.project_item.private')
+                        }
                     </p>
                 </Grid>
-                <Tooltip title={status ? 'Projekt zakończony' : 'Projekt w trakcie realizacji'} arrow>
+                <Tooltip 
+                    title={
+                        status ? 
+                        t('content.project_item.tooltip_project_finished') : 
+                        t('content.project_item.tooltip_project_in_progress')
+                    } 
+                    arrow
+                >
                     <Grid item xs={1} md={1} style={{display: 'flex', justifyContent: 'right'}}>
                         {!status ? <IoHourglassOutline style={{color: 'orange'}} /> : <MdDone style={{color: 'green'}} />}
                     </Grid>
@@ -47,7 +62,9 @@ const ProjectItem = ({ name, description, photo, technologies, githubPage, isPub
             </Grid>
             <Typography variant="h6" className="project-title">{name}</Typography>
             <p>{description}</p>
-            <p style={{color: 'grey', margin: '0', fontSize: 'small'}}>Ostatnia aktualizacja</p>
+            <p style={{color: 'grey', margin: '0', fontSize: 'small'}}>
+                {t('content.project_item.last_update')}:
+            </p>
             <Stack direction="row" spacing={1} style={{marginTop: '0.5em', marginBottom: '1em'}}>
                 <PiGitCommitDuotone />
                 <p style={{fontSize: 'small'}}>{lastCommitFormatted}</p>
@@ -83,7 +100,7 @@ const ProjectItem = ({ name, description, photo, technologies, githubPage, isPub
                     })
                 }
             </Stack>
-            <Tooltip title="Pokaż wiecej" arrow>
+            <Tooltip title={t('content.project_item.button_link')} arrow>
                 <IconButton 
                     className="more-button icon-button" 
                     disableRipple

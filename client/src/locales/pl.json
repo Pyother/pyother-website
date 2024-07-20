@@ -1,0 +1,38 @@
+{
+    "header": {
+        "tooltip_facebook": "Facebook",
+        "tooltip_instagram": "Instagram",
+        "tooltip_linkedin": "LinkedIn",
+        "tooltip_github": "Github",
+        "tooltip_email": "e-mail",
+        "tooltip_phone": "Telefon",
+        "tooltip_tiktok": "TikTok",
+        "button_projects": "Projekty",
+        "button_photography": "Fotografia",
+        "about": {
+            "title": "Czym się zajmuję",
+            "subtitle": "Moje usługi"
+        }
+    },
+    "content": {
+        "project_item": {
+            "button_link": "Pokaż więcej",
+            "tooltip_project_finished": "Projekt zakończony",
+            "tooltip_project_in_progress": "Projekt w trakcie realizacji",
+            "last_update": "Ostatnia aktualizacja",
+            "private": "Projekt prywatny",
+            "public": "Projekt służbowy"
+        },
+        "header_projects": "Projekty",
+        "header_photography": "Fotografia",
+        "chip_sort": "Sortowanie",
+        "sort_button_apply": "Zastosuj",
+        "projects_sorting_dialog": {
+            "title": "Sortowanie",
+            "header_technologies": "Technologie",
+            "header_commits": "Commity (tylko projekty prywatne)",
+            "sort_ascending": "Od najstarszego",
+            "sort_descending": "Od najnowszego"
+        }
+    }
+}

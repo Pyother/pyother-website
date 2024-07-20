@@ -26,9 +26,13 @@ import ProjectItem from './items/ProjectItem';
 import StyledDialog from './styled_components/StyledDialog';
 import findIcon from '../services/data_display/findIcon';
 
+// * i18next:
+import { useTranslation } from 'react-i18next';
+
 export const Content = () => {
 
     const dispatch = useDispatch();
+    const { t } = useTranslation();
     const projectsData = useSelector(state => state.projectsData);
     const selectedTechnologies = useSelector(state => state.selectedTechnologies.value) || [];
     const [sortDialogOpen, setSortDialogOpen] = useState(false);
@@ -94,11 +98,11 @@ export const Content = () => {
             <StyledDialog
                 open={sortDialogOpen}
                 handleClose={() => setSortDialogOpen(false)}
-                title="Sortowanie"
-                buttonTitle="Zastosuj"
+                title={t('content.projects_sorting_dialog.title')}
+                buttonTitle={t('content.sort_button_apply')}
                 children={
                     <Stack>
-                        <Typography variant="p">Technologie</Typography>
+                        <Typography variant="p">{t('content.projects_sorting_dialog.header_technologies')}</Typography>
                         <Stack direction="row" spacing={1} style={{padding: '1em 0em', flexWrap: 'wrap'}}>
                             {technologies.map((technology) => {
                                 const iconData = findIcon(technology.toLowerCase());
@@ -127,7 +131,7 @@ export const Content = () => {
                                 } else return <></>
                             })}
                         </Stack>
-                        <Typography variant="p">Commity (tylko projekty prywatne)</Typography>
+                        <Typography variant="p">{t('content.projects_sorting_dialog.header_commits')}</Typography>
                         <RadioGroup style={{marginTop: '0.5em'}}>
                             <FormControlLabel 
                                 value="down" 
@@ -140,7 +144,7 @@ export const Content = () => {
                                 label={
                                     <Stack direction="row" className="center" spacing={1}>
                                         <BsSortDown />
-                                        <p>Od najnowszego</p>
+                                        <p>{t('content.projects_sorting_dialog.sort_descending')}</p>
                                     </Stack>
                                 }
                             />
@@ -155,7 +159,7 @@ export const Content = () => {
                                 label={
                                     <Stack direction="row" className="center" spacing={1}>
                                         <BsSortUp />
-                                        <p>Od najstarszego</p>
+                                        <p>{t('content.projects_sorting_dialog.sort_ascending')}</p>
                                     </Stack>
                                 }
                             />
@@ -168,7 +172,7 @@ export const Content = () => {
                 <Grid container style={{padding: '0em 1em'}}>
                     <Grid item xs={7} md={7}>
                         <Typography variant="h5" className="section-title">
-                            Projekty
+                            {t('content.header_projects')}
                         </Typography>
                     </Grid>
                     <Grid item xs={5} md={5}>
@@ -180,7 +184,7 @@ export const Content = () => {
                                     <VscSettings />
                                 </Avatar>
                             }
-                            label="Sortowanie"
+                            label={t('content.chip_sort')}
                             className="chip"
                             onClick={() => setSortDialogOpen(true)}
                         />
@@ -310,7 +314,7 @@ export const Content = () => {
                     </Grid>
                 }
                 <Typography variant="h5" className="section-title">
-                    Fotografia
+                    {t('content.header_photography')}
                 </Typography>
             </Stack>
         </ThemeProvider>
