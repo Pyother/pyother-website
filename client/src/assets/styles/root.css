@@ -9,6 +9,7 @@ body {
 
 :root {
     --primary-bg: black;
+    --secondary-dark-bg: #1c2028;
     --secondary-bg: #f0f0f0;
     --selected-bg: #d6d6d6;
     --accent-color: #cfdef3;

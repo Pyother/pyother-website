@@ -24,3 +24,8 @@ button {
     background: var(--selected-bg) !important;
     color: var(--accent-color-dark) !important;
 }
+
+.skeleton {
+    height: 2em;
+    border-radius: var(--border-radius);
+}

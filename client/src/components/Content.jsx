@@ -24,6 +24,7 @@ import { TbClearAll } from "react-icons/tb";
 import colorsTheme from '../assets/themes/colorsTheme';
 import ProjectItem from './items/ProjectItem';
 import StyledDialog from './styled_components/StyledDialog';
+import StyledSkeleton from './styled_components/StyledSkeleton';
 import findIcon from '../services/data_display/findIcon';
 
 // * i18next:
@@ -271,7 +272,7 @@ export const Content = () => {
                 }
                 {
                     (projectsData.status === 'idle' || projectsData.status === 'error') ?
-                    <>Ładowanie ...</> : 
+                    <StyledSkeleton type='light' /> : 
                     <Grid container spacing={3}>
                         {sortedProjects.map((project) => (
                             <Grid item xs={12} sm={6} md={4} key={project._id}>

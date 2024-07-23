@@ -14,6 +14,11 @@ const createRoutes = (app) => {
         const records = await getRecords('projects');
         response.json(records);
     });
+
+    app.get('/api/services', async (request, response) => {
+        const records = await getRecords('services');
+        response.json(records);
+    });
     
 }
 

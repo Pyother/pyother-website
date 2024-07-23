@@ -7,6 +7,7 @@ const fetchProjectsData = async (setProjectsData, setStatus, dispatch) => {
 
         dispatch(setProjectsData(data));
         dispatch(setStatus('success'));
+        
     } catch (error) {
         console.log(error);
         dispatch(setProjectsData([]));

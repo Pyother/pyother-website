@@ -1,9 +1,9 @@
 // * React and Redux:
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 // * MUI:
 import { 
-    Grid,
     Stack,
     IconButton,
     Typography,
@@ -19,9 +19,14 @@ import { useTranslation } from 'react-i18next';
 import US from 'country-flag-icons/react/3x2/US';
 import PL from 'country-flag-icons/react/3x2/PL';
 
+// * Own components:
+import ServiceItem from './items/ServiceItem';
+import StyledSkeleton from './styled_components/StyledSkeleton';
+
 export const Header = () => {
 
     const { t, i18n } = useTranslation();
+    const servicesData = useSelector(state => state.servicesData);
     const [language, setLanguage] = React.useState(localStorage.getItem('language') || 'pl');
 
     return (
@@ -75,19 +80,34 @@ export const Header = () => {
             <Typography variant="p" align="center" className="subtitle">
                 Frontend Developer
             </Typography>
-            <Grid container style={{margin: "1em 0em 2em 0em"}}>
-                <Grid item xs={12} md={12} >
-                    <Stack className="center">
-                        <Typography variant="h6" align="center">
-                            {t('header.about.title')}
-                        </Typography>
-                        <Typography variant="p" align="center" style={{color: 'grey'}}> 
-                            {t('header.about.subtitle')}
-                        </Typography>
-                    </Stack>
-                </Grid>
-                
-            </Grid>
+            <Stack className="center" style={{margin: "1em 0em 2em 0em"}}>
+                <Typography variant="h6" align="center">
+                    {t('header.about.title')}
+                </Typography>
+                <Typography variant="p" align="center" style={{color: 'grey'}}> 
+                    {t('header.about.subtitle')}
+                </Typography>
+                <Stack 
+                    className="center"
+                    direction="row" 
+                    spacing={2} 
+                    style={{margin: '2em 0em 1em 0em', width: '100%'}}
+                >
+                    {
+                        servicesData.status === 'idle' ? 
+                        <StyledSkeleton type="dark"/> :
+                        servicesData.status === 'success' ? 
+                        servicesData.services.map((service, index) => (
+                            <ServiceItem 
+                                key={index} 
+                                name={service.name_pl}
+                                description={service.description_pl}
+                            />
+                        ))
+                        : <StyledSkeleton type='dark'/>
+                    }
+                </Stack>
+            </Stack>
             <Stack direction="row" spacing={2} className="navigation-stack">
                 <Button className="icon-button">
                     {t('header.button_projects')}

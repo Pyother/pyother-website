@@ -1,13 +1,16 @@
 // * React and Redux:
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setProjectsData, setStatus } from './features/data/ProjectsDataSlice';
+import { setProjectsData, setStatus as setProjectsStatus } from './features/data/ProjectsDataSlice';
+import { setServicesData, setStatus as setServicesStatus } from './features/data/ServicesDataSlice';
 
 // * Views:
 import { HomeView } from './views/HomeView';
 
 // * Services:
 import fetchProjectsData from './services/fetching/fetchProjectsData';
+
+import fetchData from './services/fetching/fetchData';
 
 // * Styles:
 import './assets/styles/root.css';
@@ -22,8 +25,8 @@ function App() {
 
     // Fetching and setting projects data:
     useEffect(() => {
-        fetchProjectsData(setProjectsData, setStatus, dispatch);
-    })
+        fetchData(setProjectsData, setProjectsStatus, setServicesData, setServicesStatus, dispatch);
+    });
 
     // Setting language:
     useEffect(() => {

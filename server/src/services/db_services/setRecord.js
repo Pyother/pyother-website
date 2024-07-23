@@ -13,6 +13,7 @@ const dbname = process.env.DB_NAME;
 const client = new MongoClient(mongoUri);
 let projectsCollection;
 let photosCollection;
+let servicesCollection;
 
 // * Readline interface:
 const rl = readline.createInterface({
@@ -56,6 +57,47 @@ const findImage = async (imageName, project) => {
         });
     }
 };
+
+const addService = async () => {
+
+    let service = {
+        _id: new ObjectId(),
+        name_pl: null,
+        name_en: null,
+        description_pl: null,
+        description_en: null,
+        link: null,
+    };
+
+    logWithColor('================== NOWY REKORD ==================', 'bgWhite');
+    console.log();
+
+    rl.question('↪ Nazwa usługi (PL): ', (name_pl) => {
+        service.name_pl = name_pl;
+        rl.question('↪ Nazwa usługi (EN): ', (name_en) => {
+            service.name_en = name_en;
+            rl.question('↪ Opis usługi (PL): ', (description_pl) => {
+                service.description_pl = description_pl;
+                rl.question('↪ Opis usługi (EN): ', (description_en) => {
+                    service.description_en = description_en;
+                    rl.question('↪ Link do usługi: ', async (link) => {
+                        service.link = link;
+                        await servicesCollection.insertOne(service);
+                        logWithColor('Usługa została dodana pomyślnie ✅', 'green');
+                        console.log();
+                        logWithColor('=================================================', 'bgWhite');
+                        rl.close();
+                        process.exit(0);
+                    });
+                });
+            });
+        });
+    });
+
+    rl.on('close', async () => {
+        process.exit(0);
+    });
+}
 
 // * Function for adding new project record.
 const addProject = async () => {
@@ -119,11 +161,29 @@ const addPhoto = async () => {
 // * Main function:
 const main = async () => {
     try {
+
         await client.connect();
         projectsCollection = client.db(dbname).collection('projects');  
         photosCollection = client.db(dbname).collection('photos'); 
+        servicesCollection = client.db(dbname).collection('services');
 
-        addProject();
+        rl.question('Co chcesz dodać? (projekt/usługa/zdjęcie): ', async (answer) => {
+            switch(answer) {
+                case 'projekt':
+                    addProject();
+                    break;
+                case 'usługa':
+                    addService();
+                    break;
+                case 'zdjęcie':
+                    addPhoto();
+                    break;
+                default:
+                    logWithColor('Nieznana komenda', 'red');
+                    process.exit(0);
+            }
+        });
+
     } catch (e) {
         logWithColor(`Error connecting to MongoDB: ${e}`, 'red');
     } 
