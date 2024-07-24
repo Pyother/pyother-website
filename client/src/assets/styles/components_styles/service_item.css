@@ -2,6 +2,7 @@
     display: flex;
     text-align: left;
     padding: 1em;
+    margin-bottom: 1em;
     background-color: var(--secondary-dark-bg);
     border-radius: var(--border-radius);
     color: white;

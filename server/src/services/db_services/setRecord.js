@@ -22,12 +22,12 @@ const rl = readline.createInterface({
 });
 
 // * Fuction which finds image in assets and ends adding new project record.
-const findImage = async (imageName, project) => {
+const findImage = async (imageName, item, collection) => {
 
     if (!imageName) {
         logWithColor('Nazwa grafiki nie może być pusta', 'yellow');
         rl.question('Podaj nazwę grafiki: ', async (newImageName) => {
-            findImage(newImageName, project);
+            findImage(newImageName, item);
         });
         return;
     }
@@ -36,9 +36,9 @@ const findImage = async (imageName, project) => {
 
     try {
         const imageBuffer = await fs.readFile(imagePath);
-        project.photo = imageBuffer;
-        if(project.photo !== null) {
-            await projectsCollection.insertOne(project);
+        item.photo = imageBuffer;
+        if(item.photo !== null) {
+            await collection.insertOne(item);
             logWithColor('Projekt został dodany pomyślnie ✅', 'green');
             console.log();
             logWithColor('=================================================', 'bgWhite');
@@ -47,13 +47,13 @@ const findImage = async (imageName, project) => {
         } else {
             logWithColor('Nie znaleziono pliku o podanej nazwie', 'yellow');
             rl.question('Podaj nazwę grafiki: ', async (newImageName) => {
-                findImage(newImageName, project);
+                findImage(newImageName, item);
             });
         }
     } catch (error) {
         logWithColor('Nie znaleziono pliku o podanej nazwie', 'yellow');
         rl.question('Podaj nazwę grafiki (bez rozszerzenia): ', async (newImageName) => {
-            findImage(newImageName, project);
+            findImage(newImageName, item);
         });
     }
 };
@@ -67,6 +67,7 @@ const addService = async () => {
         description_pl: null,
         description_en: null,
         link: null,
+        photo: null,
     };
 
     logWithColor('================== NOWY REKORD ==================', 'bgWhite');
@@ -82,12 +83,9 @@ const addService = async () => {
                     service.description_en = description_en;
                     rl.question('↪ Link do usługi: ', async (link) => {
                         service.link = link;
-                        await servicesCollection.insertOne(service);
-                        logWithColor('Usługa została dodana pomyślnie ✅', 'green');
-                        console.log();
-                        logWithColor('=================================================', 'bgWhite');
-                        rl.close();
-                        process.exit(0);
+                        rl.question('↪ Podaj nazwę grafiki (bez rozszerzenia): ', async (imageName) => {
+                            findImage(imageName, service, servicesCollection);
+                        });
                     });
                 });
             });
@@ -139,7 +137,7 @@ const addProject = async () => {
                                 project.public = parseBoolean(public);
                             }
                             rl.question('↪ Podaj nazwę grafiki: ', async (imageName) => {
-                                findImage(imageName, project);
+                                findImage(imageName, project, projectsCollection);
                             });
                         });
                     });

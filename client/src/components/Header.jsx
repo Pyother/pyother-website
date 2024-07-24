@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 // * MUI:
 import { 
+    Grid,
     Stack,
     IconButton,
     Typography,
@@ -87,26 +88,29 @@ export const Header = () => {
                 <Typography variant="p" align="center" style={{color: 'grey'}}> 
                     {t('header.about.subtitle')}
                 </Typography>
-                <Stack 
+                <Grid 
                     className="center"
-                    direction="row" 
-                    spacing={2} 
-                    style={{margin: '2em 0em 1em 0em', width: '100%'}}
+                    container
+                    spacing={3} 
+                    style={{width: '100%', marginTop: '1em'}}
                 >
                     {
                         servicesData.status === 'idle' ? 
                         <StyledSkeleton type="dark"/> :
                         servicesData.status === 'success' ? 
                         servicesData.services.map((service, index) => (
-                            <ServiceItem 
-                                key={index} 
-                                name={service.name_pl}
-                                description={service.description_pl}
-                            />
+                            <Grid item xs={12} sm={6} md={4} key={service._id}>
+                                <ServiceItem 
+                                    key={index} 
+                                    name={service.name_pl}
+                                    description={service.description_pl}
+                                    photo={service.photo}
+                                />
+                            </Grid>
                         ))
                         : <StyledSkeleton type='dark'/>
                     }
-                </Stack>
+                </Grid>
             </Stack>
             <Stack direction="row" spacing={2} className="navigation-stack">
                 <Button className="icon-button">
