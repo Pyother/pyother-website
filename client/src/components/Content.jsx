@@ -100,6 +100,7 @@ export const Content = () => {
                 open={sortDialogOpen}
                 handleClose={() => setSortDialogOpen(false)}
                 title={t('content.projects_sorting_dialog.title')}
+                button={true}
                 buttonTitle={t('content.sort_button_apply')}
                 children={
                     <Stack>
@@ -170,7 +171,7 @@ export const Content = () => {
                 handleButton={applyFilters}
             />
             <Stack className="content">
-                <Grid container style={{padding: '0em 1em'}}>
+                <Grid container style={{padding: '1em 1em 0em 1em'}}>
                     <Grid item xs={7} md={7}>
                         <Typography variant="h5" className="section-title">
                             {t('content.header_projects')}
@@ -314,9 +315,6 @@ export const Content = () => {
                         ))}
                     </Grid>
                 }
-                <Typography variant="h5" className="section-title">
-                    {t('content.header_photography')}
-                </Typography>
             </Stack>
         </ThemeProvider>
     )

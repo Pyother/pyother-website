@@ -1,5 +1,7 @@
 {
     "header": {
+        "title": "Front-end Developer",
+        "subtitle": "Turning ideas into code",
         "tooltip_facebook": "Facebook",
         "tooltip_instagram": "Instagram",
         "tooltip_linkedin": "LinkedIn",
@@ -7,9 +9,15 @@
         "tooltip_email": "e-mail",
         "tooltip_phone": "Telefon",
         "tooltip_tiktok": "TikTok",
+        "button_about": "About",
+        "button_services": "Services",
         "button_projects": "Projects",
         "button_photography": "Photography",
         "about": {
+            "title": "About",
+            "text": "Hi there! I'm Piotr"
+        },
+        "services": {
             "title": "What I do",
             "subtitle": "My services"
         }

@@ -18,14 +18,22 @@
     color: white;
 }
 
+.app-bar {
+    background-color: var(--primary-bg);
+    color: white;
+}
+
 @media (max-width: 1000px) {
     .header, .content, .footer {
-        padding: 1em 1em;
+        padding: 1em 1em !important;
+    }
+    .app-bar {
+        padding: 1.5em 1.5em !important;
     }
 }
 
 @media (min-width: 1000px) {
-    .header, .content, .footer {
-        padding: 1em 10em;
+    .header, .content, .footer, .app-bar {
+        padding: 1em 10em !important;
     }
 }

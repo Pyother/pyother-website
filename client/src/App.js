@@ -3,13 +3,12 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setProjectsData, setStatus as setProjectsStatus } from './features/data/ProjectsDataSlice';
 import { setServicesData, setStatus as setServicesStatus } from './features/data/ServicesDataSlice';
+import { setDeviceType } from './features/display/DeviceTypeSlice';
 
 // * Views:
 import { HomeView } from './views/HomeView';
 
 // * Services:
-import fetchProjectsData from './services/fetching/fetchProjectsData';
-
 import fetchData from './services/fetching/fetchData';
 
 // * Styles:
@@ -22,6 +21,23 @@ function App() {
 
     const { i18n } = useTranslation();
     const dispatch = useDispatch();
+    
+    // Device type:
+    useEffect(() => {
+        
+        const handleResize = () => {
+            dispatch(setDeviceType(
+                window.innerWidth > 960 ? 'desktop' : 'mobile'
+            ));
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [dispatch]);
 
     // Fetching and setting projects data:
     useEffect(() => {

@@ -1,5 +1,7 @@
 {
     "header": {
+        "title": "Programista Front-end",
+        "subtitle": "Zamieniam pomysły w kod",
         "tooltip_facebook": "Facebook",
         "tooltip_instagram": "Instagram",
         "tooltip_linkedin": "LinkedIn",
@@ -7,9 +9,15 @@
         "tooltip_email": "e-mail",
         "tooltip_phone": "Telefon",
         "tooltip_tiktok": "TikTok",
+        "button_about": "O mnie",
+        "button_services": "Usługi",
         "button_projects": "Projekty",
         "button_photography": "Fotografia",
         "about": {
+            "title": "O mnie",
+            "text": "Cześć! Jestem Piotr"
+        },
+        "services": {
             "title": "Czym się zajmuję",
             "subtitle": "Moje usługi"
         }

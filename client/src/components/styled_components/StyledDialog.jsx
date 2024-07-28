@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import { RiCloseLargeFill } from "react-icons/ri";
 
-const StyledDialog = ({ open, handleClose, title, children, buttonTitle, handleButton }) => {
+const StyledDialog = ({ open, handleClose, title, children, button, buttonTitle, handleButton }) => {
     return (
         <Dialog open={open} onClose={handleClose}>
             <Stack direction="row" spacing={1} className="padding-1em">
@@ -27,16 +27,20 @@ const StyledDialog = ({ open, handleClose, title, children, buttonTitle, handleB
             <DialogContent>
                 {children}
             </DialogContent>
-            <div className="button-container center">
-                <Button
-                    disableRipple
-                    disableFocusRipple
-                    variant="classic-button contained"
-                    onClick={handleButton}
-                >
-                    {buttonTitle}
-                </Button>
-            </div>
+            {
+                button ?
+                <div className="button-container center">
+                    <Button
+                        disableRipple
+                        disableFocusRipple
+                        variant="classic-button contained"
+                        onClick={handleButton}
+                    >
+                        {buttonTitle}
+                    </Button>
+                </div> :
+                <></>
+            }
         </Dialog>
     );
 }

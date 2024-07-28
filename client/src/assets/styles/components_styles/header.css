@@ -1,19 +1,32 @@
 .title {
-    padding-top: 1em;
+    color: white;
+    font-weight: bolder;
 }
 
 .subtitle {
-    padding-bottom: 2em;
+    color: white;
 }
 
-.media-stack {
+.logo {
+    width: 2em;
+    height: 2em;
+    margin-right: 0.5em;
+}
+
+.background-photo {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 50vh;
     display: flex;
-    justify-content: end;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .navigation-stack {
     display: flex;
-    justify-content: start;
+    justify-content: end;
 }
 
 .flag-icon {
