@@ -3,11 +3,11 @@ button {
 }
 
 .classic-button {
-    background: var(--accent-color) !important;
+    background: var(--accent-color-green) !important;
 }
 
 .icon-button {
-    color: var(--accent-color) !important;
+    color: white !important;
 }
 
 .padding-1em {
@@ -22,7 +22,7 @@ button {
 
 .selected {
     background: var(--selected-bg) !important;
-    color: var(--accent-color-dark) !important;
+    color: black !important;
 }
 
 .skeleton {

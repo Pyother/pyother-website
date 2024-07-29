@@ -14,6 +14,17 @@ const colorsTheme = createTheme({
         light: {
             main: '#f0f0f0'
         },
+        accentGreen: {
+            main: '#00d67d',
+            light: '#66e6a7',
+            dark: '#00a35e'
+        },
+        accentBlue: {
+            main: '#91b9fc',
+            light: '#c0d4ff',
+            dark: '#6a8ecb'
+        }
+        
     }
 });
 
