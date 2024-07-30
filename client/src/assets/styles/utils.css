@@ -11,8 +11,37 @@ button {
     color: white !important;
 }
 
+.button-chip {
+    color: white !important;
+    border: 2px solid inherit !important;
+    transition: all 0.3s ease !important;
+}
+
+.button-chip:hover {
+    background-color: var(--accent-color-green) !important;
+}
+
 .padding-1em {
     padding: 1em;
+}
+
+.bg-secondary {
+    color: white !important;
+    background-color: var(--secondary-dark-bg) !important;
+}
+
+.bg-black {
+    color: white !important;
+    background-color: black !important;
+}
+
+.bg-green {
+    background-color: var(--accent-color-green) !important;
+    transition: all 0.3s ease !important;
+}
+
+.bg-green:hover {
+    background-color: #00a35e !important;
 }
 
 .center {

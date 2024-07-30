@@ -13,6 +13,8 @@
         "button_services": "Services",
         "button_projects": "Projects",
         "button_photography": "Photography",
+        "button_expand": "Learn more",
+        "button_language": "EN",
         "about": {
             "title": "About",
             "text": "Hi there! I'm Piotr"

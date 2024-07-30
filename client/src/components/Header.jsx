@@ -11,9 +11,13 @@ import {
     Button,
     Chip,
     Avatar,
+    Divider,
 } from '@mui/material';
 import { AiOutlineMenu } from "react-icons/ai";
-import { MdOutlineExpandMore } from "react-icons/md";
+import { FaArrowDownLong } from "react-icons/fa6";
+import { FaReact } from "react-icons/fa";
+import { IoLogoJavascript } from "react-icons/io";
+import { FaNodeJs } from "react-icons/fa";
 import { ThemeProvider } from '@mui/material/styles';
 import colorsTheme from '../assets/themes/colorsTheme';
 
@@ -72,23 +76,28 @@ export const Header = () => {
                             </IconButton> : 
                             <Stack direction="row" className="navigation-stack" spacing={2}>
                                 <Chip 
-                                    style={{color: 'white', border: '1px solid white'}}
+                                    className="button-chip bg-black"
                                     clickable
                                     label={t('header.button_about')}
+                                    variant='filled'
                                 />
                                 <Chip
-                                    style={{color: 'white', border: '1px solid white'}}
+                                    className="button-chip bg-black"
                                     clickable
                                     label={t('header.button_services')}
+                                    variant='filled'
                                 />
                                 <Chip
-                                    style={{color: 'white', border: '1px solid white'}}
+                                    className="button-chip bg-black"
                                     clickable
                                     label={t('header.button_projects')}
+                                    variant='filled'
                                 />
                                 <Chip 
-                                    label="Language"
-                                    style={{color: 'white', border: '1px solid white'}}
+                                    label={t('header.button_language')}
+                                    className="button-chip bg-black"
+                                    variant='filled'
+                                    clickable
                                     avatar={
                                         <Avatar
                                             style={{backgroundColor: 'inherit', fontSize: 'larger', paddingLeft: '0.5em'}}
@@ -110,19 +119,63 @@ export const Header = () => {
                                         }
                                     }}
                                 />
-
-                                
                             </Stack>
                         }
                     </Grid>
                 </Grid>
                 <Grid container className="header-background" style={{paddingTop: deviceType === 'desktop' ? '2em' : '0em'}}>
                     <Grid 
-                        item xs={6} sm={6} md={6} 
+                        item xs={12} sm={6} md={6} 
                         className="center"
                         style={{ width: '100%', height: '100%' }}
                     >
-                        <Stack style={{ overflow: 'hidden', margin: '3em 0em' }}>
+                        <Stack style={{ overflow: 'hidden', margin: '3em 0em' }} className="center">
+                            
+                            <Stack direction="row" spacing={2} style={{display: 'flex', alignItems: 'center'}}>
+                                <Chip 
+                                    label="React"
+                                    className="bg-secondary"
+                                    variant="filled"
+                                    avatar={
+                                        <Avatar
+                                            style={{backgroundColor: 'inherit', color: 'white', fontSize: 'larger'}}
+                                        >
+                                            <FaReact />
+                                        </Avatar>
+                                    }
+                                />
+                                <Chip
+                                    label="JavaScript"
+                                    className="bg-secondary"
+                                    variant="filled"
+                                    avatar={
+                                        <Avatar
+                                            style={{backgroundColor: 'inherit', color: 'white', fontSize: 'larger'}}
+                                        >
+                                            <IoLogoJavascript />
+                                        </Avatar>
+                                    }
+                                />
+                                <Chip
+                                    label="Node.js"
+                                    className="bg-secondary"
+                                    variant="filled"
+                                    avatar={
+                                        <Avatar
+                                            style={{backgroundColor: 'inherit', color: 'white', fontSize: 'larger'}}
+                                        >
+                                            <FaNodeJs />
+                                        </Avatar>
+                                    }
+                                />
+                            </Stack>
+                            <Divider 
+                                style={{ 
+                                    width: '100%', 
+                                    backgroundColor: 'lightgrey',
+                                    margin: '1em 0em'
+                                }} 
+                            />
                             <Typography 
                                 variant="h4" 
                                 align="center" 
@@ -139,6 +192,27 @@ export const Header = () => {
                             >
                                 {t('header.subtitle')}
                             </Typography>
+
+                            <Chip 
+                                label={t('header.button_expand')}
+                                clickable
+                                className="button-chip bg-green"
+                                style={{marginTop: '1em', width: 'fit-content'}}
+                                avatar={
+                                    <Avatar
+                                        style={{backgroundColor: 'inherit', color: 'white'}}
+                                    >
+                                        <FaArrowDownLong />
+                                    </Avatar>
+                                }
+                                variant='filled'
+                                onClick={() => {
+                                    window.scrollTo({
+                                        top: window.innerHeight,
+                                        behavior: 'smooth'
+                                    });
+                                }}
+                            />
                         </Stack>
                     </Grid> 
                     <Grid 

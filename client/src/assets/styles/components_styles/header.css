@@ -1,6 +1,8 @@
 .title {
     color: white;
     font-weight: bolder;
+    display: inline;
+    width: 100%;
 }
 
 .subtitle {
@@ -23,7 +25,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: -2;
 }
 
 .navigation-stack {
