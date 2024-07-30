@@ -9,6 +9,8 @@ import {
     IconButton,
     Typography,
     Button,
+    Chip,
+    Avatar,
 } from '@mui/material';
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdOutlineExpandMore } from "react-icons/md";
@@ -30,7 +32,7 @@ import StyledSkeleton from './styled_components/StyledSkeleton';
 
 // * Images:
 import logo from '../assets/images/pyother_logo.png';
-import contour from '../assets/images/contour.png';
+import portrait from '../assets/images/portrait.png';
 
 export const Header = () => {
 
@@ -57,8 +59,9 @@ export const Header = () => {
                     style={{display: 'flex', alignItems: 'center'}}
                 >
                     <Grid item xs={8} sm={6} md={4}>
-                        <Stack direction="row">
+                        <Stack direction="row" spacing={2} style={{display: 'flex', alignItems: 'center'}}>
                             <img src={logo} alt="logo" className="logo"/>
+                            <Typography variant="p" style={{color: 'white'}}>Piotr Sobol</Typography>
                         </Stack>
                     </Grid>
                     <Grid item xs={4} sm={6} md={8} style={{display: 'flex', justifyContent: 'flex-end'}}>
@@ -68,16 +71,33 @@ export const Header = () => {
                                 <AiOutlineMenu />
                             </IconButton> : 
                             <Stack direction="row" className="navigation-stack" spacing={2}>
-                                <Button className="icon-button">
-                                    {t('header.button_about')}
-                                </Button>
-                                <Button className="icon-button">
-                                    {t('header.button_services')}
-                                </Button>
-                                <Button className="icon-button">
-                                    {t('header.button_projects')}
-                                </Button>
-                                <IconButton className="icon-button"
+                                <Chip 
+                                    style={{color: 'white', border: '1px solid white'}}
+                                    clickable
+                                    label={t('header.button_about')}
+                                />
+                                <Chip
+                                    style={{color: 'white', border: '1px solid white'}}
+                                    clickable
+                                    label={t('header.button_services')}
+                                />
+                                <Chip
+                                    style={{color: 'white', border: '1px solid white'}}
+                                    clickable
+                                    label={t('header.button_projects')}
+                                />
+                                <Chip 
+                                    label="Language"
+                                    style={{color: 'white', border: '1px solid white'}}
+                                    avatar={
+                                        <Avatar
+                                            style={{backgroundColor: 'inherit', fontSize: 'larger', paddingLeft: '0.5em'}}
+                                        >
+                                            {
+                                                language === 'en' ? <US className="flag-icon"/> : <PL className="flag-icon"/> 
+                                            }
+                                        </Avatar>
+                                    }
                                     onClick={() => {
                                         if(language === 'pl') {
                                             localStorage.setItem('language', 'en');
@@ -89,25 +109,54 @@ export const Header = () => {
                                             setLanguage('pl');
                                         }
                                     }}
-                                >
-                                    {
-                                        language === 'en' ? <US className="flag-icon"/> : <PL className="flag-icon"/> 
-                                    }
-                                </IconButton>
+                                />
+
+                                
                             </Stack>
                         }
                     </Grid>
                 </Grid>
-                <Grid container 
-                    className="background-photo"
-                >
-                    <Grid item xs={12} sm={12} md={12} className="center">
-                        <Lottie 
-                            options={defaultOptions}
-                            height={300}
-                            width={300}
-                        />
+                <Grid container className="header-background" style={{paddingTop: deviceType === 'desktop' ? '2em' : '0em'}}>
+                    <Grid 
+                        item xs={6} sm={6} md={6} 
+                        className="center"
+                        style={{ width: '100%', height: '100%' }}
+                    >
+                        <Stack style={{ overflow: 'hidden', margin: '3em 0em' }}>
+                            <Typography 
+                                variant="h4" 
+                                align="center" 
+                                className="title" 
+                                style={{ fontSize: deviceType === 'mobile' ? '1.5em' : '2.125em' }}
+                            >
+                                {t('header.title')}
+                            </Typography>
+                            <Typography 
+                                variant="body1" 
+                                align="center" 
+                                className="subtitle" 
+                                style={{ fontSize: deviceType === 'mobile' ? 'small' : '1em' }}
+                            >
+                                {t('header.subtitle')}
+                            </Typography>
+                        </Stack>
                     </Grid> 
+                    <Grid 
+                        item xs={12} sm={6} md={6} 
+                        style={{ width: '100%', height: '100%', display: 'flex'}}
+                    >
+                        <img 
+                            src={portrait}
+                            alt="portrait"
+                            className="portrait"
+                            style={{
+                                maxWidth: '100%',
+                                maxHeight: '100%',
+                                objectFit: 'cover',
+                                userSelect: 'none'
+                            }}
+                        />
+                    </Grid>
                 </Grid>
                 <Stack className="header">
                     <Stack className="center" style={{margin: "1em 0em 2em 0em"}}>

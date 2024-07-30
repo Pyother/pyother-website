@@ -19,7 +19,7 @@
 }
 
 .app-bar {
-    background-color: var(--primary-bg);
+    background-color: var(--secondary-dark-bg);
     color: white;
 }
 

@@ -13,16 +13,13 @@
     margin-right: 0.5em;
 }
 
-.background-photo {
-    /*background: linear-gradient(to bottom, black, transparent 30%, transparent 70%, black),
-            linear-gradient(to right, black, transparent 20%, transparent 80%, black),
-            url('../../images/background.jpg');*/
-            background: black;
+.header-background {
+    background: var(--secondary-dark-bg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    height: 50vh;
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,6 +29,7 @@
 .navigation-stack {
     display: flex;
     justify-content: end;
+    align-items: center;
 }
 
 .flag-icon {
