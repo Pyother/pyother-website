@@ -1,5 +1,15 @@
+.dialog {
+    background-color: var(--secondary-bg) !important;
+    color: white !important;
+}
+
 .button-container {
     width: 100%;
     padding: 1em 0em;
     background-color: var(--secondary-bg);
+}
+
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+    background-color: var(--secondary-bg) !important;
+    color: white !important;
 }

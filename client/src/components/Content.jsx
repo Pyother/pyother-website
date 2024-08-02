@@ -14,6 +14,7 @@ import {
     Checkbox,
     FormControlLabel,
 } from '@mui/material';
+import ClearIcon from '@mui/icons-material/Clear';
 import { ThemeProvider } from '@mui/material/styles';
 import { VscSettings } from "react-icons/vsc";
 import { BsSortDown } from "react-icons/bs";
@@ -139,7 +140,7 @@ export const Content = () => {
                                 value="down" 
                                 control={
                                     <Checkbox 
-                                        color="primary"
+                                        color="accentGreen"
                                         checked={tempState.descendingSort}
                                         onChange={() => handleCheckboxChange('descending')}
                                     />}
@@ -154,7 +155,7 @@ export const Content = () => {
                                 value="up" 
                                 control={
                                     <Checkbox 
-                                        color="primary"
+                                        color="accentGreen"
                                         checked={tempState.ascendingSort}
                                         onChange={() => handleCheckboxChange('ascending')}
                                     />} 
@@ -170,7 +171,7 @@ export const Content = () => {
                 }
                 handleButton={applyFilters}
             />
-            <Stack className="content">
+            <Stack id="projects" className="content">
                 <Grid container style={{padding: '1em 1em 0em 1em'}}>
                     <Grid item xs={7} md={7}>
                         <Typography variant="h5" className="section-title">
@@ -206,7 +207,7 @@ export const Content = () => {
                                 className="chip"
                                 clickable
                                 avatar={
-                                    <Avatar className="avatar" style={{background: 'inherit !important'}}>
+                                    <Avatar className="avatar icon" style={{background: 'inherit !important'}}>
                                         <TbClearAll />
                                     </Avatar>
                                 }
@@ -252,6 +253,7 @@ export const Content = () => {
                                                 style={{ 
                                                     marginBottom: '0.5em'
                                                 }}
+                                                deleteIcon={<ClearIcon className="icon"/>}
                                                 onDelete={() => {
                                                     setTempState((prevState) => ({
                                                         ...prevState,

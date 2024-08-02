@@ -15,9 +15,9 @@ import { RiCloseLargeFill } from "react-icons/ri";
 
 const StyledDialog = ({ open, handleClose, title, children, button, buttonTitle, handleButton }) => {
     return (
-        <Dialog open={open} onClose={handleClose}>
+        <Dialog open={open} onClose={handleClose} className="dialog">
             <Stack direction="row" spacing={1} className="padding-1em">
-                <IconButton>
+                <IconButton className="icon">
                     <RiCloseLargeFill onClick={handleClose} />
                 </IconButton>
                 <Typography variant="h6" className="project-title center">

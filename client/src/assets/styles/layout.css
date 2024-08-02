@@ -11,6 +11,8 @@
 
 .content {
     min-height: --webkit-fill-available !important;
+    background-color: var(--secondary-bg);
+    color: white;
 }
 
 .footer {
@@ -19,7 +21,7 @@
 }
 
 .app-bar {
-    background-color: var(--secondary-dark-bg);
+    background-color: var(--secondary-bg);
     color: white;
 }
 

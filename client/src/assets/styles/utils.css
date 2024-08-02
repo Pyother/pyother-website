@@ -2,6 +2,19 @@ button {
     box-shadow: none !important;
 }
 
+.icon {
+    color: white !important;
+}
+
+.chip {
+    color: white !important;
+    background-color: var(--tertiary-bg) !important;
+}
+
+.avatar {
+    background-color: inherit !important;
+}
+
 .classic-button {
     background: var(--accent-color-green) !important;
 }
@@ -27,7 +40,12 @@ button {
 
 .bg-secondary {
     color: white !important;
-    background-color: var(--secondary-dark-bg) !important;
+    background-color: var(--secondary-bg) !important;
+}
+
+.bg-tertiary {
+    color: white !important;
+    background-color: var(--tertiary-bg) !important;
 }
 
 .bg-black {
@@ -41,7 +59,7 @@ button {
 }
 
 .bg-green:hover {
-    background-color: #00a35e !important;
+    background-color: var(--accent-color-green) !important;
 }
 
 .center {
@@ -51,8 +69,8 @@ button {
 }
 
 .selected {
-    background: var(--selected-bg) !important;
-    color: black !important;
+    background: var(--accent-color-green) !important;
+    color: white !important;
 }
 
 .skeleton {
