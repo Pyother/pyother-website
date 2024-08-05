@@ -41,18 +41,34 @@
 .menu-item {
     width: 100%;
     color: white !important;
-    background-color: inherit;
+    background-color: inherit !important;
 }
 
+.tab {
+    color: white !important;
+    padding: 1em 1em 2em 1em !important;
+    margin: 2em 0em 0em 0em !important;
+    text-transform: none !important;
+}
+
+.signature {
+    width: 10em;
+}
 
 @media (max-width: 1000px) {
     .background-photo {
         padding: 0;
+    }
+    .header-background {
+        padding: 1em 1em
     }
 }
 
 @media (min-width: 1000px) {
     .background-photo {
         padding: 0 10em;
+    }
+    .header-background {
+        padding: 1em 10em;
     }
 }   

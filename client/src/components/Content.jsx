@@ -51,6 +51,14 @@ export const Content = () => {
     });
 
     useEffect(() => {
+        setActualState({
+            technologies: selectedTechnologies,
+            ascendingSort: tempState.ascendingSort,
+            descendingSort: tempState.descendingSort
+        })
+    }, [selectedTechnologies]);
+
+    useEffect(() => {
         if (projectsData.projects) {
             const allTechnologies = projectsData.projects
                 .flatMap(project => project.technologies)
@@ -98,6 +106,7 @@ export const Content = () => {
     return (
         <ThemeProvider theme={colorsTheme}>
             <StyledDialog
+                className="dialog"
                 open={sortDialogOpen}
                 handleClose={() => setSortDialogOpen(false)}
                 title={t('content.projects_sorting_dialog.title')}
@@ -171,12 +180,12 @@ export const Content = () => {
                 }
                 handleButton={applyFilters}
             />
-            <Stack id="projects" className="content">
+            <Stack id="projects" className="content center" style={{margin: '1em 0em'}}>
+                <Typography variant='h6'>{t('content.header_projects')}</Typography>
+                <Typography variant='p' className="subtitle">{t('content.subtitle_projects')}</Typography>
                 <Grid container style={{padding: '1em 1em 0em 1em'}}>
                     <Grid item xs={7} md={7}>
-                        <Typography variant="h5" className="section-title">
-                            {t('content.header_projects')}
-                        </Typography>
+                    
                     </Grid>
                     <Grid item xs={5} md={5}>
                         <Chip

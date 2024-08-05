@@ -12,8 +12,9 @@
         "button_about": "About",
         "button_services": "Services",
         "button_projects": "Projects",
-        "button_photography": "Photography",
         "button_expand": "Learn more",
+        "button_whoami": "Who am I",
+        "button_skills": "Skills",
         "button_language": "EN",
         "about": {
             "title": "About",
@@ -34,7 +35,7 @@
             "public": "Business project"
         },
         "header_projects": "Projects",
-        "header_photography": "Photography",
+        "subtitle_projects": "My projects",
         "chip_sort": "Sorting",
         "sort_button_apply": "Apply",
         "projects_sorting_dialog": {

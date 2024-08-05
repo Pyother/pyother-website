@@ -11,6 +11,7 @@
     "@lingui/react": "^4.11.2",
     "@mui/icons-material": "^5.15.20",
     "@mui/material": "^5.15.20",
+    "@mui/system": "^5.16.6",
     "@react-icons/all-files": "^4.1.0",
     "@reduxjs/toolkit": "^2.2.5",
     "@testing-library/jest-dom": "^5.17.0",

@@ -100,16 +100,13 @@ const ProjectItem = ({ name, description, photo, technologies, githubPage, isPub
                     })
                 }
             </Stack>
-            <Tooltip title={t('content.project_item.button_link')} arrow>
-                <IconButton 
-                    className="more-button icon-button" 
-                    disableRipple
-                    disableFocusRipple
-                    onClick = {() => window.location.href = githubPage }
-                >
-                    <IoIosMore />
-                </IconButton>
-            </Tooltip>
+            <Chip
+                className="chip bg-secondary"
+                clickable
+                label={t('content.project_item.button_link')}
+                onClick = {() => window.location.href = githubPage }
+                style={{margin: '0.5em 0em'}}
+            />
         </Stack>
     )
 }

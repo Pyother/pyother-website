@@ -1,6 +1,7 @@
 // * React and Redux:
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { pushTechnology } from '../features/display/SelectedTechnologiesSlice';
 
 // * MUI and React icons:
 import { 
@@ -12,9 +13,13 @@ import {
     Chip,
     Avatar,
     Divider,
+    Tabs, 
+    Tab,
+    TabPanel,
+
 } from '@mui/material';
 import { AiOutlineMenu } from "react-icons/ai";
-import { FaArrowDownLong } from "react-icons/fa6";
+import { MdOutlineExpandMore } from "react-icons/md";
 import { FaReact } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
 import { FaNodeJs } from "react-icons/fa";
@@ -26,22 +31,29 @@ import { useTranslation } from 'react-i18next';
 import US from 'country-flag-icons/react/3x2/US';
 import PL from 'country-flag-icons/react/3x2/PL';
 
+// * Lotties:
+import Lottie from 'react-lottie';
+import * as animationData from  '../assets/lotties/rocket_lottie.json';
+
 // * Own components:
 import ServiceItem from './items/ServiceItem';
 import StyledSkeleton from './styled_components/StyledSkeleton';
 import StyledDialog from './styled_components/StyledDialog';
+import StyledTabs from './styled_components/StyledTabs';
 
 // * Images:
 import logo from '../assets/images/pyother_logo.png';
-import portrait from '../assets/images/portrait.png';
+import signature from '../assets/images/signature.png';
 
 export const Header = () => {
 
+    const dispatch = useDispatch();
     const { t, i18n } = useTranslation();
     const servicesData = useSelector(state => state.servicesData);
     const deviceType = useSelector(state => state.deviceType.value);
     const [language, setLanguage] = useState(localStorage.getItem('language') || 'pl');
     const [dialogOpen, setDialogOpen] = useState(false);
+    const [currentTab, setCurrentTab] = useState(0);
 
     const menuItems = [
         {
@@ -91,6 +103,15 @@ export const Header = () => {
         }
     ];
 
+    const defaultOptions = {
+        loop: true,
+        autoplay: true, 
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+        }
+    };
+
     return (
         <ThemeProvider theme={colorsTheme}>
             <StyledDialog 
@@ -131,13 +152,13 @@ export const Header = () => {
                     className="app-bar"
                     style={{display: 'flex', alignItems: 'center'}}
                 >
-                    <Grid item xs={8} sm={6} md={4}>
+                    <Grid item xs={8} sm={6} md={6}>
                         <Stack direction="row" spacing={2} style={{display: 'flex', alignItems: 'center'}}>
                             <img src={logo} alt="logo" className="logo"/>
                             <Typography variant="p" style={{color: 'white'}}>Piotr Sobol</Typography>
                         </Stack>
                     </Grid>
-                    <Grid item xs={4} sm={6} md={8} style={{display: 'flex', justifyContent: 'flex-end'}}>
+                    <Grid item xs={4} sm={6} md={6} style={{display: 'flex', justifyContent: 'flex-end'}}>
                         {
                             deviceType === 'mobile' ? 
                             <IconButton 
@@ -175,6 +196,7 @@ export const Header = () => {
                             <Stack direction="row" spacing={2} style={{display: 'flex', alignItems: 'center'}}>
                                 <Chip 
                                     label="React"
+                                    clickable
                                     className="bg-secondary"
                                     variant="filled"
                                     avatar={
@@ -184,9 +206,16 @@ export const Header = () => {
                                             <FaReact />
                                         </Avatar>
                                     }
+                                    onClick={() => {
+                                        dispatch(pushTechnology('react'));
+                                        document.getElementById("projects").scrollIntoView({
+                                            behavior: 'smooth'
+                                        });
+                                    }}
                                 />
                                 <Chip
                                     label="JavaScript"
+                                    clickable
                                     className="bg-secondary"
                                     variant="filled"
                                     avatar={
@@ -196,9 +225,16 @@ export const Header = () => {
                                             <IoLogoJavascript />
                                         </Avatar>
                                     }
+                                    onClick={() => {
+                                        dispatch(pushTechnology('js'));
+                                        document.getElementById("projects").scrollIntoView({
+                                            behavior: 'smooth'
+                                        });
+                                    }}
                                 />
                                 <Chip
                                     label="Node.js"
+                                    clickable
                                     className="bg-secondary"
                                     variant="filled"
                                     avatar={
@@ -208,6 +244,12 @@ export const Header = () => {
                                             <FaNodeJs />
                                         </Avatar>
                                     }
+                                    onClick={() => {
+                                        dispatch(pushTechnology('nodejs'));
+                                        document.getElementById("projects").scrollIntoView({
+                                            behavior: 'smooth'
+                                        });
+                                    }}
                                 />
                             </Stack>
                             <Divider 
@@ -233,7 +275,6 @@ export const Header = () => {
                             >
                                 {t('header.subtitle')}
                             </Typography>
-
                             <Chip 
                                 label={t('header.button_expand')}
                                 clickable
@@ -243,13 +284,12 @@ export const Header = () => {
                                     <Avatar
                                         style={{backgroundColor: 'inherit', color: 'white'}}
                                     >
-                                        <FaArrowDownLong />
+                                        <MdOutlineExpandMore style={{fontSize: 'large'}}/>
                                     </Avatar>
                                 }
                                 variant='filled'
                                 onClick={() => {
-                                    window.scrollTo({
-                                        top: window.innerHeight,
+                                    document.getElementById('about').scrollIntoView({
                                         behavior: 'smooth'
                                     });
                                 }}
@@ -257,25 +297,47 @@ export const Header = () => {
                         </Stack>
                     </Grid> 
                     <Grid 
-                        item xs={12} sm={6} md={6} 
-                        style={{ width: '100%', height: '100%', display: 'flex'}}
+                        className="center"
+                        item xs={12} sm={6} md={4} 
+                        style={{ width: '100%', height: '100%', display: 'flex', padding: deviceType === 'mobile' ? '1em' : '3em 5em 5em 0em' }}
                     >
-                        <img 
-                            src={portrait}
-                            alt="portrait"
-                            className="portrait"
-                            style={{
-                                maxWidth: '100%',
-                                maxHeight: '100%',
-                                objectFit: 'cover',
-                                userSelect: 'none'
-                            }}
+                        <Lottie 
+                            options={defaultOptions}
+                            isStopped={false}
+                            isPaused={false}
+                            style={{width: deviceType === 'mobile' ? '70%' : '80%'}}
                         />
                     </Grid>
                 </Grid>
                 <Stack className="header">
                     <Stack id="about" className="center" style={{margin: "1em 0em 2em 0em"}}>
-                        
+                        <Typography variant="h6" align="center">
+                            {t('header.about.title')}
+                        </Typography>
+                        <Typography variant="p" align="center" style={{color: 'grey'}}>
+                            {t('header.about.text')}
+                        </Typography>
+                        <StyledTabs 
+                            value={currentTab} 
+                            onChange={() => {
+                                currentTab === 0 ? setCurrentTab(1) : setCurrentTab(0);
+                            }} 
+                            indicatorColor=""
+                        >
+                            <Tab label={t('header.button_whoami')} className="tab" value={0}/>
+                            <Tab label={t('header.button_skills')} className="tab" value={1}/>
+                        </StyledTabs>
+                        <Stack style={{padding: '1em 0em'}}>
+                        {
+                            currentTab === 0 ? 
+                            <>
+                                <img src={signature} className="signature"/>
+                            </> :
+                            <>
+                                
+                            </>
+                        }
+                        </Stack>
                     </Stack>
                     <Stack id="services" className="center" style={{margin: "1em 0em 2em 0em"}}>
                         <Typography variant="h6" align="center">

@@ -15,8 +15,8 @@ import { RiCloseLargeFill } from "react-icons/ri";
 
 const StyledDialog = ({ open, handleClose, title, children, button, buttonTitle, handleButton }) => {
     return (
-        <Dialog open={open} onClose={handleClose} className="dialog">
-            <Stack direction="row" spacing={1} className="padding-1em">
+        <Dialog open={open} onClose={handleClose} className="dialog bg-secondary">
+            <Stack direction="row" spacing={1} className="padding-1em bg-secondary">
                 <IconButton className="icon">
                     <RiCloseLargeFill onClick={handleClose} />
                 </IconButton>
@@ -24,12 +24,12 @@ const StyledDialog = ({ open, handleClose, title, children, button, buttonTitle,
                     {title}   
                 </Typography>
             </Stack>
-            <DialogContent>
+            <DialogContent className="bg-secondary">
                 {children}
             </DialogContent>
             {
                 button ?
-                <div className="button-container center">
+                <div className="button-container center bg-secondary">
                     <Button
                         disableRipple
                         disableFocusRipple

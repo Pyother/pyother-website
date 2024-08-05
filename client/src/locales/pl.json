@@ -12,8 +12,9 @@
         "button_about": "O mnie",
         "button_services": "Usługi",
         "button_projects": "Projekty",
-        "button_photography": "Fotografia",
         "button_expand": "Dowiedz się więcej",
+        "button_whoami": "Kim jestem",
+        "button_skills": "Umiejętności",
         "button_language": "PL",
         "about": {
             "title": "O mnie",
@@ -34,7 +35,7 @@
             "public": "Projekt służbowy"
         },
         "header_projects": "Projekty",
-        "header_photography": "Fotografia",
+        "subtitle_projects": "Moje projekty",
         "chip_sort": "Sortowanie",
         "sort_button_apply": "Zastosuj",
         "projects_sorting_dialog": {
