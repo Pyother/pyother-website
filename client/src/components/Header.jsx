@@ -37,6 +37,7 @@ import * as animationData from  '../assets/lotties/rocket_lottie.json';
 
 // * Own components:
 import ServiceItem from './items/ServiceItem';
+import SkillItem from './items/SkillItem';
 import StyledSkeleton from './styled_components/StyledSkeleton';
 import StyledDialog from './styled_components/StyledDialog';
 import StyledTabs from './styled_components/StyledTabs';
@@ -102,6 +103,21 @@ export const Header = () => {
             }
         }
     ];
+
+    const techs = [
+        {
+            name: 'React',
+            possibleNames: ['react']
+        },
+        {
+            name: 'JavaScript',
+            possibleNames: ['js', 'javascript']
+        },
+        {
+            name: 'Node.js',
+            possibleNames: ['node', 'nodejs']
+        }
+    ]
 
     const defaultOptions = {
         loop: true,
@@ -327,17 +343,25 @@ export const Header = () => {
                             <Tab label={t('header.button_whoami')} className="tab" value={0}/>
                             <Tab label={t('header.button_skills')} className="tab" value={1}/>
                         </StyledTabs>
-                        <Stack style={{padding: '1em 0em'}}>
+                        <Grid container className="center" style={{padding: '1em 0em', width: '100%'}}>
                         {
                             currentTab === 0 ? 
                             <>
                                 <img src={signature} className="signature"/>
                             </> :
-                            <>
-                                
-                            </>
+                            <Stack spacing={1} style={{width: deviceType === 'desktop' ? '50%' : '100%'}}>
+                                {
+                                    techs.map((tech, index) => (
+                                        <SkillItem 
+                                            key={index}
+                                            name={tech.name} 
+                                            possibleNames={tech.possibleNames}
+                                        />
+                                    ))
+                                }
+                            </Stack>
                         }
-                        </Stack>
+                        </Grid>
                     </Stack>
                     <Stack id="services" className="center" style={{margin: "1em 0em 2em 0em"}}>
                         <Typography variant="h6" align="center">

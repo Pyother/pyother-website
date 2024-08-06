@@ -26,14 +26,14 @@ import { useTranslation } from 'react-i18next';
 // * Other:
 import moment from 'moment';
 
-const ProjectItem = ({ name, description, photo, technologies, githubPage, isPublic, status, lastCommit, onTechnologyClick }) => {
+const ProjectItem = ({ id, name, description, photo, technologies, githubPage, isPublic, status, lastCommit, onTechnologyClick }) => {
 
     const { t } = useTranslation();
     const selectedTechnologies = useSelector(state => state.selectedTechnologies.value) || [];
     const lastCommitFormatted = lastCommit ? moment(lastCommit).format('DD.MM.YYYY HH:mm:ss') : 'Brak danych';
 
     return (
-        <Stack className="project-item">
+        <Stack className="project-item" id={id}>
             <div className="photo-container center">
                 {photo && <img src={`data:image/jpeg;base64,${photo}`} alt={name} className="photo"/>}
             </div>

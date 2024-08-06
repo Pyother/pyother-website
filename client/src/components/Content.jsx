@@ -289,6 +289,7 @@ export const Content = () => {
                         {sortedProjects.map((project) => (
                             <Grid item xs={12} sm={6} md={4} key={project._id}>
                                 <ProjectItem
+                                    id={project._id}
                                     name={project.name}
                                     description={project.description}
                                     photo={project.photo}
