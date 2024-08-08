@@ -77,3 +77,8 @@ button {
     height: 2em;
     border-radius: var(--border-radius);
 }
+
+.description {
+    color: grey;
+    line-height: 1.5em;
+}

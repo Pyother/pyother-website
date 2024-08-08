@@ -1,6 +1,9 @@
 const fetchData = async (setProjectsData, setProjectsStatus, setServicesData, setServicesStatus, dispatch) => {
+    
+    const url = 'http://localhost:3001/';
+
     try {
-        const projectsResponse = await fetch('http://localhost:3001/api/projects');
+        const projectsResponse = await fetch(`${url}/api/projects`);
         if (!projectsResponse.ok) {
             throw new Error('Error while fetching projects data.');
         }
@@ -8,7 +11,7 @@ const fetchData = async (setProjectsData, setProjectsStatus, setServicesData, se
         dispatch(setProjectsData(projectsData));
         dispatch(setProjectsStatus('success'));
 
-        const servicesResponse = await fetch('http://localhost:3001/api/services');
+        const servicesResponse = await fetch(`${url}/api/services`);
         if (!servicesResponse.ok) {
             throw new Error('Error while fetching services data.');
         }

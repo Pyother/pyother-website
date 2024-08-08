@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--secondary-bg);
+    color: white;
 }
 
 :root {
@@ -14,7 +15,7 @@ body {
     --tertiary-bg: #2b2f3a;
     --accent-color-green: #00d67d;
     --accent-color-blue: #91b9fc;
-    --border-radius: 0.25em;
+    --border-radius: 0.5em;
 }
 
 .app {

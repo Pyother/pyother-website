@@ -114,7 +114,7 @@ export const Header = () => {
             possibleNames: ['js', 'javascript']
         },
         {
-            name: 'Node.js',
+            name: 'Nodejs',
             possibleNames: ['node', 'nodejs']
         }
     ]
@@ -356,6 +356,7 @@ export const Header = () => {
                                             key={index}
                                             name={tech.name} 
                                             possibleNames={tech.possibleNames}
+                                            description={t(`header.about.skills.${tech.name.toLowerCase()}_description`)}
                                         />
                                     ))
                                 }

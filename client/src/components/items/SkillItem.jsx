@@ -22,8 +22,12 @@ import countTechOccurrences from '../../services/data_display/countTechOccurrenc
 import findIcon from '../../services/data_display/findIcon';
 import IconPainter from '../../services/data_display/IconPainter';
 
-const SkillItem = ({ name, possibleNames }) => {
+// * i18next:
+import { useTranslation } from 'react-i18next';
 
+const SkillItem = ({ name, possibleNames, description }) => {
+
+    const { t } = useTranslation();
     const projectsData = useSelector(state => state.projectsData.projects);
     const iconData = findIcon(possibleNames[0]);
 
@@ -44,17 +48,21 @@ const SkillItem = ({ name, possibleNames }) => {
                         <Avatar className='bg-secondary'>
                             <IconComponent style={{color: backgroundColor}} />
                         </Avatar>
-                        <h3>{name}</h3>
+                        <Typography variant="h6">{name}</Typography>
                         <Chip
-                            label={`${countTechOccurrences(possibleNames, projectsData).occurences} projekty`}
-                            style={{color: 'white'}}
-                            variant="outlined"
+                            label={
+                                `${countTechOccurrences(possibleNames, projectsData).occurences} 
+                                ${countTechOccurrences(possibleNames, projectsData).occurences > 4 ? t('header.about.skills.related_projects_lowercase_multiple')
+                                : t('header.about.skills.related_projects_lowercase')}`}
+                            style={{color: 'grey', marginLeft: '1em'}}
+                            variant="filled"
+                            size="small" 
                         />
                     </Stack>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Stack spacing={2}>
-                        <Typography variant="p" style={{color: 'white', fontSize: 'small', fontWeight: 'bold'}}>Powiązane projekty</Typography>
+                        <Typography variant="p" style={{color: 'white'}}>{t('header.about.skills.related_projects')}</Typography>
                         <Stack spacing={1} direction="row" style={{flexWrap: 'wrap'}}>
                             {
                                 countTechOccurrences(possibleNames, projectsData).projects.map(project => {
@@ -73,8 +81,8 @@ const SkillItem = ({ name, possibleNames }) => {
                                 })
                             }
                         </Stack>
-                        <Typography variant="p" style={{color: 'white', fontSize: 'small', fontWeight: 'bold'}}>Doświadczenie</Typography>
-                        
+                        <Typography variant="p" style={{color: 'white'}}>{t('header.about.skills.experience')}</Typography>
+                        <Typography variant="p" className="description">{description}</Typography>
                     </Stack>
                 </AccordionDetails>
             </Accordion>    

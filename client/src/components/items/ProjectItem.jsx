@@ -61,13 +61,13 @@ const ProjectItem = ({ id, name, description, photo, technologies, githubPage, i
                 </Tooltip>
             </Grid>
             <Typography variant="h6" className="project-title">{name}</Typography>
-            <p>{description}</p>
-            <p style={{color: 'grey', margin: '0', fontSize: 'small'}}>
+            <Typography variant="p" className="description" style={{marginBottom: '1em'}}>{description}</Typography>
+            <p style={{margin: '0', fontSize: 'small'}}>
                 {t('content.project_item.last_update')}:
             </p>
             <Stack direction="row" spacing={1} style={{marginTop: '0.5em', marginBottom: '1em'}}>
                 <PiGitCommitDuotone />
-                <p style={{fontSize: 'small'}}>{lastCommitFormatted}</p>
+                <p style={{fontSize: 'small', color: 'grey'}}>{lastCommitFormatted}</p>
             </Stack>
             <Stack direction="row" spacing={1} style={{flexWrap: 'wrap'}}>
                 {

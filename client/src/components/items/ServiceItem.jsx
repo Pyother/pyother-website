@@ -28,8 +28,8 @@ const ServiceItem = ({ name, description, photo }) => {
                 </Typography>
                 <Typography 
                     variant="body1" 
-                    className="center"
-                    style={{textAlign: 'center', marginBottom: '0.5em'}}
+                    className="description"
+                    style={{textAlign: 'center', marginBottom: '0.5em', color: 'grey'}}
                 >
                     {description}
                 </Typography>

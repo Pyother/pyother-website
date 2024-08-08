@@ -18,7 +18,16 @@
         "button_language": "EN",
         "about": {
             "title": "About",
-            "text": "Hi there! I'm Piotr"
+            "text": "Hi there! I'm Piotr",
+            "skills": {
+                "react_description": "I design, implement and maintain various React applications. I take care of efficient state management, design, dynamic testing and deployments. I use technologies like Redux, Material UI, REST API, GraphQL and React Native on a daily basis.",
+                "nodejs_description": "I create backend applications in Node.js. I manage databases, create APIs and servers. I use technologies like Express.js, MongoDB, Mongoose, REST API and GraphQL in my work.",
+                "javascript_description": "I know JavaScript from scratch. I create scripts, web and server applications. I use technologies like ES6, TypeScript, Babel, Webpack and NPM in my work.",
+                "related_projects": "Related projects",
+                "related_projects_lowercase": "related projects",
+                "related_projects_lowecase_multiple": "related projects",
+                "experience": "Experience"
+            }
         },
         "services": {
             "title": "What I do",

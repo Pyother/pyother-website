@@ -5,6 +5,7 @@
     margin-bottom: 1em;
     background-color: var(--secondary-bg);
     border-radius: var(--border-radius);
+    border: 2px solid var(--secondary-bg);
     color: white;
 }
 
