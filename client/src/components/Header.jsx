@@ -209,7 +209,6 @@ export const Header = () => {
                         style={{ width: '100%', height: '100%' }}
                     >
                         <Stack style={{ overflow: 'hidden', margin: '1em 0em 2em 0em' }} className="center">
-                            
                             <Stack direction="row" spacing={2} style={{display: 'flex', alignItems: 'center'}}>
                                 <Chip 
                                     label="React"
@@ -374,16 +373,16 @@ export const Header = () => {
                         >
                             {
                                 servicesData.status === 'idle' ? 
-                                <StyledSkeleton type="dark"/> :
+                                <StyledSkeleton type="dark"/> : 
                                 servicesData.status === 'success' ? 
                                 servicesData.services.map((service, index) => (
-                                    <Grid item xs={12} sm={6} md={4} key={service._id}>
+                                    <Grid item xs={12} sm={6} md={4} key={service._id}> 
                                         <ServiceItem 
                                             key={index} 
-                                            name={service.name_pl}
-                                            description={service.description_pl}
-                                            photo={service.photo}
-                                        />
+                                            name={service.name_pl} 
+                                            description={service.description_pl} 
+                                            photo={service.photo} 
+                                        /> 
                                     </Grid>
                                 ))
                                 : <StyledSkeleton type='dark'/>

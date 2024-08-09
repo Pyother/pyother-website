@@ -5,6 +5,7 @@
 @import './components_styles/skill_item.css';
 @import './components_styles/dialog.css';
 @import './components_styles/section_headline.css';
+@import './components_styles/footer.css';
 
 .header {
     background-color: var(--primary-bg);
@@ -28,16 +29,22 @@
 }
 
 @media (max-width: 1000px) {
-    .header, .content, .footer {
+    .header, .content {
         padding: 1em 1em !important;
     }
     .app-bar {
         padding: 1.5em 1.5em !important;
     }
+    .footer {
+        padding: 2em 2em !important;
+    }
 }
 
 @media (min-width: 1000px) {
-    .header, .content, .footer, .app-bar {
+    .header, .content, .app-bar {
         padding: 1em 10em !important;
+    }
+    .footer {
+        padding: 2em 10em !important;
     }
 }

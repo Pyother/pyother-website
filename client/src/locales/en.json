@@ -57,6 +57,10 @@
     },
     "footer": {
         "title": "Contact",
-        "subtitle": "Feel free to contact me any time. I will get back to you as soon as i can!"
+        "subtitle": "Feel free to contact me any time. I will get back to you as soon as i can!",
+        "email_placeholder": "Your e-mail",
+        "message_placeholder": "Your message",
+        "topic_placeholder": "Topic",
+        "send": "Send"
     }
 }

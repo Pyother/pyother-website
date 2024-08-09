@@ -55,7 +55,7 @@
 }
 
 .services-container {
-    margin: var(--sections-margin) !important;
+    margin-bottom: 1em;
     margin-top: 0 !important;
 }
 

@@ -57,6 +57,10 @@
     },
     "footer": {
         "title": "Kontakt",
-        "subtitle": "Zachęcam do kontaktu w dowolnym momencie. Odpowiem tak szybko, jak tylko będę mógł!"
+        "subtitle": "Zachęcam do kontaktu w dowolnym momencie. Odpowiem tak szybko, jak tylko będę mógł!",
+        "email_placeholder": "Twój e-mail",
+        "message_placeholder": "Twoja wiadomość",
+        "topic_placeholder": "Temat",
+        "send": "Wyślij"
     }
 }

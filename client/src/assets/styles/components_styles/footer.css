@@ -1,0 +1,44 @@
+.textfield .MuiOutlinedInput-root {
+    color: white !important;
+    background-color: var(--secondary-bg) !important;
+    border-radius: var(--border-radius) !important;
+}
+
+.textfield .MuiInputLabel-root {
+    color: var(--accent-color-green) !important;
+}
+
+.textfield .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: var(--accent-color-green) !important;
+}
+
+.textfields-container {
+    margin-bottom: 1em !important;
+}
+
+.chip-send-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chip-send {
+    width: fit-content;
+}
+
+@media (max-width: 768px) {
+    .textfields-container {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+    .textfields-container {
+        width: 75%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .textfields-container {
+        width: 50%;
+    }
+}
