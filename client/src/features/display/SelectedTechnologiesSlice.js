@@ -11,9 +11,11 @@ export const selectedTechnologiesSlice = createSlice({
         },
         pushTechnology: (state, action) => {
             state.value.push(action.payload);
+            document.getElementById('projects').scrollIntoView({behavior: 'smooth'});
         },
         removeTechnology: (state, action) => {
             state.value = state.value.filter(technology => technology !== action.payload);
+            document.getElementById('projects').scrollIntoView({behavior: 'smooth'});
         },
     },
 });

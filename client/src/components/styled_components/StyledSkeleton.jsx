@@ -12,13 +12,13 @@ const StyledSkeleton = ({ type }) => {
                         <Stack direction="row" spacing={2} alignItems="center">
                             <Skeleton
                                 className='skeleton'
-                                sx={{ bgcolor: type === 'dark' ? 'dark.main' : 'light.main', width: 50, height: 50, borderRadius: '50%' }}
+                                sx={{ bgcolor: type === 'dark' ? 'tertiary.main' : 'light.main', width: 50, height: 50, borderRadius: '50%' }}
                                 animation="wave"
                                 variant='circular'
                             />
                             <Skeleton
                                 className='skeleton'
-                                sx={{ bgcolor: type === 'dark' ? 'dark.main' : 'light.main', flexGrow: 1, width: 'fit-content' }}
+                                sx={{ bgcolor: type === 'dark' ? 'tertiary.main' : 'light.main', flexGrow: 1, width: 'fit-content' }}
                                 animation="wave"
                                 variant='rounded'
                             />
@@ -27,7 +27,7 @@ const StyledSkeleton = ({ type }) => {
                             <Skeleton
                                 key={item}
                                 className='skeleton'
-                                sx={{ bgcolor: type === 'dark' ? 'dark.main' : 'light.main',  }}
+                                sx={{ bgcolor: type === 'dark' ? 'tertiary.main' : 'light.main',  }}
                                 animation="wave"
                                 variant='rounded'
                             />

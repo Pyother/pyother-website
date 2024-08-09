@@ -41,6 +41,7 @@ import SkillItem from './items/SkillItem';
 import StyledSkeleton from './styled_components/StyledSkeleton';
 import StyledDialog from './styled_components/StyledDialog';
 import StyledTabs from './styled_components/StyledTabs';
+import { SectionHeadline } from './layout_components/SectionHeadline';
 
 // * Images:
 import logo from '../assets/images/pyother_logo.png';
@@ -326,13 +327,8 @@ export const Header = () => {
                     </Grid>
                 </Grid>
                 <Stack className="header">
-                    <Stack id="about" className="center" style={{margin: "1em 0em 2em 0em"}}>
-                        <Typography variant="h6" align="center">
-                            {t('header.about.title')}
-                        </Typography>
-                        <Typography variant="p" align="center" style={{color: 'grey'}}>
-                            {t('header.about.text')}
-                        </Typography>
+                    <Stack className="center">
+                        <SectionHeadline title={t('header.about.title')} subtitle={t('header.about.subtitle')} section_id="about" />
                         <StyledTabs 
                             value={currentTab} 
                             onChange={() => {
@@ -364,18 +360,17 @@ export const Header = () => {
                         }
                         </Grid>
                     </Stack>
-                    <Stack id="services" className="center" style={{margin: "1em 0em 2em 0em"}}>
-                        <Typography variant="h6" align="center">
-                            {t('header.services.title')}
-                        </Typography>
-                        <Typography variant="p" align="center" style={{color: 'grey'}}> 
-                            {t('header.services.subtitle')}
-                        </Typography>
+                    <Stack className="center">
+                        <SectionHeadline 
+                            title={t('header.services.title')} 
+                            subtitle={t('header.services.subtitle')} 
+                            section_id="services" 
+                        />
                         <Grid 
-                            className="center"
+                            className="services-container center"
                             container
                             spacing={3} 
-                            style={{width: '100%', marginTop: '1em'}}
+                            style={{width: '100%'}}
                         >
                             {
                                 servicesData.status === 'idle' ? 

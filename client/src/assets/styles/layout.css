@@ -4,6 +4,7 @@
 @import './components_styles/service_item.css';
 @import './components_styles/skill_item.css';
 @import './components_styles/dialog.css';
+@import './components_styles/section_headline.css';
 
 .header {
     background-color: var(--primary-bg);

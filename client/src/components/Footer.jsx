@@ -3,6 +3,9 @@ import React from 'react';
 // * MUI and React icons:
 import { 
     Grid,
+    Stack,
+    Divider,
+    
 } from '@mui/material';
 import { CiFacebook } from "react-icons/ci";
 import { CiInstagram } from "react-icons/ci";
@@ -12,6 +15,9 @@ import { FaTiktok } from "react-icons/fa6";
 
 // * i18next:
 import { useTranslation } from 'react-i18next';
+
+// * Own components:
+import { SectionHeadline } from './layout_components/SectionHeadline';
 
 export const Footer = () => {
 
@@ -42,8 +48,11 @@ export const Footer = () => {
     ];
 
     return (
-        <Grid container className="footer center">
-            © 2024 | Piotr Sobol
-        </Grid>
+        <Stack className="footer center" spacing={2}>
+            <SectionHeadline title={t('footer.title')} subtitle={t('footer.subtitle')} section_id="footer" />
+            <Grid container className="center">
+            
+            </Grid>
+        </Stack>
     )  
 }

@@ -18,20 +18,20 @@
         "button_language": "PL",
         "about": {
             "title": "O mnie",
-            "text": "Cześć! Jestem Piotr",
+            "subtitle": "Poznaj moje doświadczenie, umiejętności i pasje. Dowiedz się, co mnie napędza.",
             "skills": {
                 "react_description": "Zajmuję się projektowaniem, wdrażaniem i utrzymywaniem różnorodnych aplikacji React. Dbam o sprawne zarządzanie stanem aplikacji, design, dynamiczne testowanie oraz wdrożenia. Na co dzień korzystam z technologii Redux, Material UI, REST API, GraphQL oraz React Native.",
                 "nodejs_description": "Tworzę backendowe aplikacje w Node.js. Zajmuję się zarządzaniem bazami danych, tworzeniem API oraz serwerów. W swojej pracy korzystam z technologii Express.js, MongoDB, Mongoose, REST API oraz GraphQL.",
                 "javascript_description": "Znam JavaScript od podstaw. Zajmuję się tworzeniem skryptów, aplikacji webowych oraz serwerowych. W swojej pracy korzystam z technologii ES6, TypeScript, Babel, Webpack oraz NPM.",
                 "related_projects": "Powiązane projekty",
                 "related_projects_lowercase": "powiązane projekty",
-                "related_projects_lowecase_multiple": "powiązanych projektów",
+                "related_projects_lowercase_multiple": "powiązanych projektów",
                 "experience": "Doświadczenie"
             }
         },
         "services": {
             "title": "Czym się zajmuję",
-            "subtitle": "Moje usługi"
+            "subtitle": "Tworzę nowoczesne aplikacje internetowe i mobilne, dostosowane do Twoich potrzeb."
         }
     },
     "content": {
@@ -44,7 +44,7 @@
             "public": "Projekt służbowy"
         },
         "header_projects": "Projekty",
-        "subtitle_projects": "Moje projekty",
+        "subtitle_projects": "Przegląd moich wyróżnionych projektów prywatnych i zawodowych, podzielonych według technologii. Sprawdź, nad czym pracowałem.",
         "chip_sort": "Sortowanie",
         "sort_button_apply": "Zastosuj",
         "projects_sorting_dialog": {
@@ -54,5 +54,9 @@
             "sort_ascending": "Od najstarszego",
             "sort_descending": "Od najnowszego"
         }
+    },
+    "footer": {
+        "title": "Kontakt",
+        "subtitle": "Zachęcam do kontaktu w dowolnym momencie. Odpowiem tak szybko, jak tylko będę mógł!"
     }
 }

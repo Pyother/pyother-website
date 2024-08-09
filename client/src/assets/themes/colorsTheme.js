@@ -8,6 +8,9 @@ const colorsTheme = createTheme({
         secondary: {
             main: '#ffcc00',
         },
+        tertiary: {
+            main: '#2b2f3a',
+        },
         dark: {
             main: '#1c2028'
         },

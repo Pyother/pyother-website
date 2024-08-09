@@ -46,13 +46,17 @@
 
 .tab {
     color: white !important;
-    padding: 1em 1em 2em 1em !important;
-    margin: 2em 0em 0em 0em !important;
+    padding: 1em !important;
     text-transform: none !important;
 }
 
 .signature {
     width: 10em;
+}
+
+.services-container {
+    margin: var(--sections-margin) !important;
+    margin-top: 0 !important;
 }
 
 @media (max-width: 1000px) {

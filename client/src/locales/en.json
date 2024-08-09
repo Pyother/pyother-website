@@ -18,20 +18,20 @@
         "button_language": "EN",
         "about": {
             "title": "About",
-            "text": "Hi there! I'm Piotr",
+            "subtitle": "Discover my experience, skills, and passions. Learn what drives me.",
             "skills": {
                 "react_description": "I design, implement and maintain various React applications. I take care of efficient state management, design, dynamic testing and deployments. I use technologies like Redux, Material UI, REST API, GraphQL and React Native on a daily basis.",
                 "nodejs_description": "I create backend applications in Node.js. I manage databases, create APIs and servers. I use technologies like Express.js, MongoDB, Mongoose, REST API and GraphQL in my work.",
                 "javascript_description": "I know JavaScript from scratch. I create scripts, web and server applications. I use technologies like ES6, TypeScript, Babel, Webpack and NPM in my work.",
                 "related_projects": "Related projects",
                 "related_projects_lowercase": "related projects",
-                "related_projects_lowecase_multiple": "related projects",
+                "related_projects_lowercase_multiple": "related projects",
                 "experience": "Experience"
             }
         },
         "services": {
             "title": "What I do",
-            "subtitle": "My services"
+            "subtitle": "I create modern web and mobile applications tailored to your needs."
         }
     },
     "content": {
@@ -44,7 +44,7 @@
             "public": "Business project"
         },
         "header_projects": "Projects",
-        "subtitle_projects": "My projects",
+        "subtitle_projects": "An overview of my highlighted personal and professional projects, organized by technology. Take a look at what I've worked on.",
         "chip_sort": "Sorting",
         "sort_button_apply": "Apply",
         "projects_sorting_dialog": {
@@ -55,9 +55,8 @@
             "sort_descending": "From newest"
         }
     },
-    "dynamic": {
-        "project_item": {
-            
-        }
+    "footer": {
+        "title": "Contact",
+        "subtitle": "Feel free to contact me any time. I will get back to you as soon as i can!"
     }
 }

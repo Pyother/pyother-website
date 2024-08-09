@@ -27,6 +27,7 @@ import ProjectItem from './items/ProjectItem';
 import StyledDialog from './styled_components/StyledDialog';
 import StyledSkeleton from './styled_components/StyledSkeleton';
 import findIcon from '../services/data_display/findIcon';
+import { SectionHeadline } from './layout_components/SectionHeadline';
 
 // * i18next:
 import { useTranslation } from 'react-i18next';
@@ -180,12 +181,11 @@ export const Content = () => {
                 }
                 handleButton={applyFilters}
             />
-            <Stack id="projects" className="content center" style={{margin: '1em 0em'}}>
-                <Typography variant='h6'>{t('content.header_projects')}</Typography>
-                <Typography variant='p' className="subtitle">{t('content.subtitle_projects')}</Typography>
+            <Stack className="content">
+                <SectionHeadline title={t('content.header_projects')} subtitle={t('content.subtitle_projects')} section_id="projects"/>
                 <Grid container style={{padding: '1em 1em 0em 1em'}}>
                     <Grid item xs={7} md={7}>
-                    
+
                     </Grid>
                     <Grid item xs={5} md={5}>
                         <Chip
@@ -209,7 +209,7 @@ export const Content = () => {
                         <Stack 
                             direction="row" 
                             spacing={1} 
-                            style={{padding: '0em 1em', marginBottom: '1em', display: 'flex', alignItems: 'center'}}
+                            style={{padding: '0em 1em', marginBottom: '1em', display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}
                         >
                             <Typography variant="p">Filtry</Typography>
                             <Chip
@@ -284,7 +284,7 @@ export const Content = () => {
                 }
                 {
                     (projectsData.status === 'idle' || projectsData.status === 'error') ?
-                    <StyledSkeleton type='light' /> : 
+                    <StyledSkeleton type='dark' /> : 
                     <Grid container spacing={3}>
                         {sortedProjects.map((project) => (
                             <Grid item xs={12} sm={6} md={4} key={project._id}>

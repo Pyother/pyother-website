@@ -1,6 +1,7 @@
 // * React and Redux:
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { pushTechnology } from '../../features/display/SelectedTechnologiesSlice';
 
 // * MUI:
 import {
@@ -28,6 +29,7 @@ import { useTranslation } from 'react-i18next';
 const SkillItem = ({ name, possibleNames, description }) => {
 
     const { t } = useTranslation();
+    const dispatch = useDispatch();
     const projectsData = useSelector(state => state.projectsData.projects);
     const iconData = findIcon(possibleNames[0]);
 
@@ -36,6 +38,7 @@ const SkillItem = ({ name, possibleNames, description }) => {
     }
 
     const { icon: IconComponent, backgroundColor, color } = iconData;
+    const occurrences = countTechOccurrences(possibleNames, projectsData).occurences;
 
     return (
         <ThemeProvider theme={colorsTheme}>
@@ -45,15 +48,17 @@ const SkillItem = ({ name, possibleNames, description }) => {
                     style={{color: 'white'}}
                 >
                     <Stack direction="row" spacing={2} style={{display: 'flex', alignItems: 'center'}}>
-                        <Avatar className='bg-secondary'>
+                        <Avatar className='bg-secondary' >
                             <IconComponent style={{color: backgroundColor}} />
                         </Avatar>
                         <Typography variant="h6">{name}</Typography>
                         <Chip
                             label={
-                                `${countTechOccurrences(possibleNames, projectsData).occurences} 
-                                ${countTechOccurrences(possibleNames, projectsData).occurences > 4 ? t('header.about.skills.related_projects_lowercase_multiple')
-                                : t('header.about.skills.related_projects_lowercase')}`}
+                                `${occurrences} 
+                                ${occurrences > 4 || occurrences === 0 
+                                ? t('header.about.skills.related_projects_lowercase_multiple') 
+                                : t('header.about.skills.related_projects_lowercase')}`
+                            }
                             style={{color: 'grey', marginLeft: '1em'}}
                             variant="filled"
                             size="small" 

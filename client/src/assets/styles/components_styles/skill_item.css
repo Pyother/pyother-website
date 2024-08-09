@@ -4,11 +4,3 @@
     width: -webkit-fill-available;
 }
 
-.gradient-icon {
-    display: inline-block;
-    background: linear-gradient(#00d67d, #91b9fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-}
