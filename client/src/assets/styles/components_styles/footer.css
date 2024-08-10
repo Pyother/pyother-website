@@ -14,6 +14,7 @@
 
 .textfields-container {
     margin-bottom: 1em !important;
+    width: 100%;
 }
 
 .chip-send-container {
@@ -21,24 +22,38 @@
     justify-content: flex-end;
 }
 
+.chip-feedback-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
 .chip-send {
     width: fit-content;
 }
 
-@media (max-width: 768px) {
-    .textfields-container {
-        width: 100%;
-    }
+.chip-feedback {
+    width: fit-content;
+    background-color: inherit;
+    color: var(--text-secondary-color) !important;
 }
 
-@media (min-width: 768px) and (max-width: 1000px) {
-    .textfields-container {
-        width: 75%;
-    }
+.social-media-item {
+    width: fit-content;
 }
 
-@media (min-width: 1000px) {
-    .textfields-container {
-        width: 50%;
-    }
+.social-media-container {
+    display: flex;
+    padding: 0em 2em !important;
+}
+
+.social-media-title {
+    color: var(--text-primary-color) !important;
+    width: 100%;
+    text-align: left !important;
+}
+
+.social-media-subtitle {
+    color: var(--text-secondary-color) !important;
+    line-height: var(--line-height);
+    text-align: left !important;
 }

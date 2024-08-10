@@ -3,6 +3,7 @@ import deviceTypeReducer from '../features/display/DeviceTypeSlice';
 import projectsDataReducer from '../features/data/ProjectsDataSlice';
 import servicesDataReducer from '../features/data/ServicesDataSlice';
 import selectedTechnologiesReducer from '../features/display/SelectedTechnologiesSlice';
+import emailReducer from '../features/mail/EmailSlice';
 
 const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
         projectsData: projectsDataReducer,
         servicesData: servicesDataReducer,
         selectedTechnologies: selectedTechnologiesReducer,
+        email: emailReducer,
     }
 });
 

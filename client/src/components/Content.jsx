@@ -182,7 +182,12 @@ export const Content = () => {
                 handleButton={applyFilters}
             />
             <Stack className="content">
-                <SectionHeadline title={t('content.header_projects')} subtitle={t('content.subtitle_projects')} section_id="projects"/>
+                <SectionHeadline 
+                    title={t('content.header_projects')}
+                    subtitle={t('content.subtitle_projects')} 
+                    section_id="projects"
+                    position="center"
+                />
                 <Grid container style={{padding: '1em 1em 0em 1em'}}>
                     <Grid item xs={7} md={7}>
 

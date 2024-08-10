@@ -27,7 +27,7 @@ function App() {
         
         const handleResize = () => {
             dispatch(setDeviceType(
-                window.innerWidth > 960 ? 'desktop' : 'mobile'
+                window.innerWidth > 768 ? 'desktop' : 'mobile'
             ));
         };
 

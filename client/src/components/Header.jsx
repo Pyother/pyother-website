@@ -327,7 +327,12 @@ export const Header = () => {
                 </Grid>
                 <Stack className="header">
                     <Stack className="center">
-                        <SectionHeadline title={t('header.about.title')} subtitle={t('header.about.subtitle')} section_id="about" />
+                        <SectionHeadline 
+                            title={t('header.about.title')} 
+                            subtitle={t('header.about.subtitle')} 
+                            section_id="about" 
+                            position="center"
+                        />
                         <StyledTabs 
                             value={currentTab} 
                             onChange={() => {
@@ -364,6 +369,7 @@ export const Header = () => {
                             title={t('header.services.title')} 
                             subtitle={t('header.services.subtitle')} 
                             section_id="services" 
+                            position="center"
                         />
                         <Grid 
                             className="services-container center"

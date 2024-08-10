@@ -66,6 +66,14 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+}
+
+.left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
 }
 
 .selected {

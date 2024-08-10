@@ -61,6 +61,11 @@
         "email_placeholder": "Twój e-mail",
         "message_placeholder": "Twoja wiadomość",
         "topic_placeholder": "Temat",
-        "send": "Wyślij"
+        "send": "Wyślij",
+        "feedback_success": "Wiadomość została wysłana",
+        "social_media": {
+            "title": "Media społecznościowe",
+            "subtitle": "Śledź moje projekty i aktualności w mediach społecznościowych."
+        }
     }
 }

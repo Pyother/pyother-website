@@ -17,6 +17,12 @@ const colorsTheme = createTheme({
         light: {
             main: '#f0f0f0'
         },
+        textPrimary: {
+            main: '#ffffff'
+        },
+        textSecondary: {
+            main: '#808080'
+        },
         accentGreen: {
             main: '#00d67d',
             light: '#66e6a7',
