@@ -19,6 +19,7 @@
         "about": {
             "title": "O mnie",
             "subtitle": "Poznaj moje doświadczenie, umiejętności i pasje. Dowiedz się, co mnie napędza.",
+            "description": "Jestem pełnym pasji studentem oraz developerem, który stale poszukuje nowych wyzwań. Od dwóch lat zajmuję się tworzeniem stron internetowych, zarówno od strony backendu, jak i frontendu. Podchodzę do mojej pracy z dozą fantazji, starając się łączyć funkcjonalność z estetyką. Swoją pracę łączę z pasją do systemów wbudowanych, tworząc zintegrowane interfejsy czasu rzeczywistego. Cenię sobie przejrzystość i prostotę w działaniu, wierząc, że najefektywniejsze rozwiązania często tkwią w ich eleganckiej prostocie. 🫡 Zachęcam do współpracy! 😎",
             "skills": {
                 "react_description": "Zajmuję się projektowaniem, wdrażaniem i utrzymywaniem różnorodnych aplikacji React. Dbam o sprawne zarządzanie stanem aplikacji, design, dynamiczne testowanie oraz wdrożenia. Na co dzień korzystam z technologii Redux, Material UI, REST API, GraphQL oraz React Native.",
                 "nodejs_description": "Tworzę backendowe aplikacje w Node.js. Zajmuję się zarządzaniem bazami danych, tworzeniem API oraz serwerów. W swojej pracy korzystam z technologii Express.js, MongoDB, Mongoose, REST API oraz GraphQL.",

@@ -105,7 +105,7 @@ const ProjectItem = ({ id, name, description, photo, technologies, githubPage, i
                 clickable
                 label={t('content.project_item.button_link')}
                 onClick = {() => window.location.href = githubPage }
-                style={{margin: '0.5em 0em'}}
+                style={{margin: '0.5em 0em', width: '100%'}}
             />
         </Stack>
     )

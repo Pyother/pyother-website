@@ -9,6 +9,7 @@ button {
 .chip {
     color: white !important;
     background-color: var(--tertiary-bg) !important;
+    width: fit-content;
 }
 
 .avatar {
@@ -66,7 +67,10 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+}
+
+.full {
+    width: 100%;
 }
 
 .left {
@@ -89,4 +93,16 @@ button {
 .description {
     color: grey;
     line-height: 1.5em;
+}
+
+@media (max-width: 1000px) {
+    .scaled {
+        max-width: 80%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .scaled {
+        max-width: 40%;
+    }
 }

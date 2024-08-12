@@ -20,6 +20,7 @@
     color: var(--text-secondary-color);
     line-height: var(--line-height);
     margin: var(--items-margin) !important;
+    text-align: center;
 }
 
 .section-headline-subtitle-left {
@@ -28,16 +29,4 @@
     margin: var(--items-margin) !important;
     text-align: left;
     margin-left: 1em !important;
-}
-
-@media (max-width: 1000px) {
-    .section-headline-subtitle {
-        max-width: 80%;
-    }
-}
-
-@media (min-width: 1000px) {
-    .section-headline-subtitle {
-        max-width: 40%;
-    }
 }

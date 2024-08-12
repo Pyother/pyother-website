@@ -5,21 +5,22 @@ import {
     Divider,
 } from '@mui/material';
 
-export const SectionHeadline = ({ title, subtitle, section_id, position }) => {
+export const SectionHeadline = ({ title, subtitle, section_id, position, fullMode }) => {
+    
     return (
         <Stack className="section-headline center" spacing={2} id={section_id}>
             <Typography 
                 variant="h6" 
-                className={ position === "center" ? "section-headline-title center" : "section-headline-title-left" }
+                className="section-headline-title center"
             >
                 {title}
             </Typography>
             <Typography 
                 variant="p" 
-                className={ position === "center" ? "section-headline-subtitle center" : "section-headline-subtitle-left" }
+                className={ fullMode ? "section-headline-subtitle center full" : "section-headline-subtitle center scaled" }
                 style={{ 
-                    width: position !== "center" ? "100% !important" : "auto",
-                    marginLeft: position !== "center" ? "1em" : "0px"
+                    width: "100% !important",
+                    marginLeft: "1em"
                 }}
             >
                 {subtitle}

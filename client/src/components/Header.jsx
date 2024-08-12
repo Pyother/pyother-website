@@ -51,8 +51,12 @@ export const Header = () => {
 
     const dispatch = useDispatch();
     const { t, i18n } = useTranslation();
+
+    // Selectors: 
     const servicesData = useSelector(state => state.servicesData);
     const deviceType = useSelector(state => state.deviceType.value);
+
+    // Local state:
     const [language, setLanguage] = useState(localStorage.getItem('language') || 'pl');
     const [dialogOpen, setDialogOpen] = useState(false);
     const [currentTab, setCurrentTab] = useState(0);
@@ -312,7 +316,7 @@ export const Header = () => {
                             />
                         </Stack>
                     </Grid> 
-                    <Grid 
+                    <Grid  
                         className="center"
                         item xs={12} sm={6} md={4} 
                         style={{ width: '100%', height: '100%', display: 'flex', padding: deviceType === 'mobile' ? '1em' : '3em 5em 5em 0em' }}
@@ -347,6 +351,7 @@ export const Header = () => {
                         {
                             currentTab === 0 ? 
                             <>
+                                <Typography variant="p" className="description scaled" style={{marginBottom: '1em'}}>{t('header.about.description')}</Typography>
                                 <img src={signature} className="signature"/>
                             </> :
                             <Stack spacing={1} style={{width: deviceType === 'desktop' ? '50%' : '100%'}}>
@@ -375,7 +380,7 @@ export const Header = () => {
                             className="services-container center"
                             container
                             spacing={3} 
-                            style={{width: '100%'}}
+                            style={{width: '100%', marginBottom: '2em'}}
                         >
                             {
                                 servicesData.status === 'idle' ? 

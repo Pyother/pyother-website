@@ -19,6 +19,7 @@
         "about": {
             "title": "About",
             "subtitle": "Discover my experience, skills, and passions. Learn what drives me.",
+            "description": "I am a working student and programmer looking for new employees. I have been creating websites for two years, both backend and frontend. I approach my work with a dose of fantasy, trying to access updates with aesthetics. A combined function with an application for application systems, created by a real-time interface. I value transparency and simplicity in operation, and I appreciate that the most effective solutions often lie in their comprehensive simplicity. 🫡 I encourage you to cooperate! 😎",
             "skills": {
                 "react_description": "I design, implement and maintain various React applications. I take care of efficient state management, design, dynamic testing and deployments. I use technologies like Redux, Material UI, REST API, GraphQL and React Native on a daily basis.",
                 "nodejs_description": "I create backend applications in Node.js. I manage databases, create APIs and servers. I use technologies like Express.js, MongoDB, Mongoose, REST API and GraphQL in my work.",

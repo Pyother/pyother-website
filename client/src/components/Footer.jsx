@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setEmail, setTopic, setMessage, eraseAll } from '../features/mail/EmailSlice';
 
@@ -42,27 +42,44 @@ export const Footer = () => {
     const [messageValue, setMessageValue] = useState("");
     const [messageSent, setMessageSent] = useState(false);
 
+    useEffect(() => {
+        setEmailValue(emailFeature.email);
+        setTopicValue(emailFeature.topic);
+        setMessageValue(emailFeature.message);
+    }, [emailFeature]);
+
+    const handleSend = () => {
+        setEmailValue("");
+        setTopicValue("");
+        setMessageValue("");
+    }
+
     // Social media's array:
     const socialMediaArray = [
         {
             name: t('header.tooltip_facebook'),
-            icon: <CiFacebook />
+            icon: <CiFacebook />,
+            href: "https://www.facebook.com/piotr.sobol.104/"
         }, 
         {
             name: t('header.tooltip_instagram'),
-            icon: <CiInstagram />
+            icon: <CiInstagram />,
+            href: "https://www.instagram.com/pyother_s/"
         },
         {
             name: t('header.tooltip_github'),
-            icon: <FaGithub />
+            icon: <FaGithub />,
+            href: 'https://github.com/Pyother'
         },
         {
             name: t('header.tooltip_linkedin'),
-            icon: <CiLinkedin />
+            icon: <CiLinkedin />,
+            href: 'https://www.linkedin.com/in/piotr-sobol-800499235/'
         },
         {
             name: t('header.tooltip_tiktok'),
-            icon: <FaTiktok />
+            icon: <FaTiktok />,
+            href: 'https://www.tiktok.com/@pyother'
         }
     ];
 
@@ -87,8 +104,11 @@ export const Footer = () => {
                                 color="accentGreen"
                                 fullWidth
                                 onChange={(e) => {
-                                    setEmailValue(e.target.value);
                                     dispatch(setEmail(e.target.value));
+                                    setEmailValue(e.target.value);
+                                }}
+                                InputLabelProps={{
+                                    shrink: Boolean(emailValue) || undefined,
                                 }}
                             />
                             <TextField
@@ -100,8 +120,11 @@ export const Footer = () => {
                                 color="accentGreen"
                                 fullWidth
                                 onChange={(e) => {
-                                    setTopicValue(e.target.value);
                                     dispatch(setTopic(e.target.value));
+                                    setTopicValue(e.target.value);
+                                }}
+                                InputLabelProps={{
+                                    shrink: Boolean(topicValue) || undefined,
                                 }}
                             />
                             <TextField
@@ -115,8 +138,11 @@ export const Footer = () => {
                                 multiline
                                 rows={4}
                                 onChange={(e) => {
-                                    setMessageValue(e.target.value);
                                     dispatch(setMessage(e.target.value));
+                                    setMessageValue(e.target.value);
+                                }}
+                                InputLabelProps={{
+                                    shrink: Boolean(messageValue) || undefined,
                                 }}
                             />
                             <Grid container>
@@ -160,10 +186,8 @@ export const Footer = () => {
                                             emailFeature.email && 
                                             emailFeature.topic ) {
                                                 dispatch(eraseAll());
-                                                setEmailValue("");
-                                                setTopicValue("");
-                                                setMessageValue("");
                                                 setMessageSent(true);
+                                                handleSend();
                                                 setTimeout(() => {
                                                     setMessageSent(false);
                                                 }, 3000);
@@ -174,16 +198,19 @@ export const Footer = () => {
                             </Grid>
                         </Stack>
                     </Grid>
-                    <Grid item xs={0} sm={0.5} md={0.5}>
+                    <Grid item xs={12} sm={0.5} md={0.5}>
                         <Divider 
-                            orientation="vertical" 
+                            orientation={ deviceType === 'mobile' ? 'horizontal' : 'vertical' }
                             sx={{ 
                                 borderColor: colorsTheme.palette.textSecondary.main, 
                                 height: '80%' 
                             }} 
+                            style={{ margin: deviceType === 'mobile' ? '0.75em 0' : '0 1em' }}
                         />
                     </Grid>
-                    <Grid item xs={12} sm={5.5} md={5.5}>
+                    <Grid item xs={12} sm={5.5} md={5.5}
+                        style={{ marginTop: deviceType === 'mobile' ? '2em' : '0' }}
+                    >
                         <Stack spacing={2} className="social-media-container">
                             {
                                 deviceType !== 'mobile' ? 
@@ -203,10 +230,29 @@ export const Footer = () => {
                                     position="center"
                                 /> 
                             }
-                            <Stack direction="row" spacing={2} className="center">
+                            <Stack direction="row" spacing={2} className="center"
+                                style={{ 
+                                    margin: deviceType === 'mobile' ? '0.5em 0' : '1em 0',
+                                    display: 'flex',
+                                    justifyContent: deviceType === 'mobile' ? 'center' : 'flex-start',
+                                    flexWrap: 'wrap'
+                                }}
+                            >
                                 {socialMediaArray.map((socialMedia, index) => (
-                                    <Avatar key={index} className="avatar">
-                                        {socialMedia.icon}
+                                    <Avatar 
+                                        key={index} 
+                                        onClick={() => window.open(socialMedia.href, "_blank")}
+                                        sx={{
+                                            cursor: 'pointer',
+                                            backgroundColor: colorsTheme.palette.tertiary.main,
+                                            
+                                        }}
+                                        style={{marginTop: '0.5em'}}
+                                    >
+                                        <socialMedia.icon.type 
+                                            style={{ color: colorsTheme.palette.accentGreen.main }} 
+                                            size={24} 
+                                        />
                                     </Avatar>
                                 ))}
                             </Stack>
