@@ -33,7 +33,7 @@ import PL from 'country-flag-icons/react/3x2/PL';
 
 // * Lotties:
 import Lottie from 'react-lottie';
-import * as animationData from  '../assets/lotties/rocket_lottie.json';
+import * as animationData from  '../assets/lotties/code_animation.json';
 
 // * Own components:
 import ServiceItem from './items/ServiceItem';
@@ -46,6 +46,7 @@ import { SectionHeadline } from './layout_components/SectionHeadline';
 // * Images:
 import logo from '../assets/images/pyother_logo.png';
 import signature from '../assets/images/signature.png';
+import portrait from '../assets/images/portrait.png';
 
 export const Header = () => {
 
@@ -317,9 +318,9 @@ export const Header = () => {
                         </Stack>
                     </Grid> 
                     <Grid  
-                        className="center"
+                        className="center lottie-container"
                         item xs={12} sm={6} md={4} 
-                        style={{ width: '100%', height: '100%', display: 'flex', padding: deviceType === 'mobile' ? '1em' : '3em 5em 5em 0em' }}
+                        style={{ width: '100%', height: '100%', display: 'flex' }}
                     >
                         <Lottie 
                             options={defaultOptions}
@@ -350,10 +351,22 @@ export const Header = () => {
                         <Grid container className="center" style={{padding: '1em 0em', width: '100%'}}>
                         {
                             currentTab === 0 ? 
-                            <>
-                                <Typography variant="p" className="description scaled" style={{marginBottom: '1em'}}>{t('header.about.description')}</Typography>
-                                <img src={signature} className="signature"/>
-                            </> :
+                            <Grid container>
+                                <Grid item xs={12} sm={6} md={6} className="center" style={{padding: '1em', display: 'flex', alignItems: 'start', 
+                                        justifyContent: 'flex-end'
+                                    }}>
+                                    <img src={portrait} className="portrait"/>
+                                </Grid>
+                                <Grid item xs={12} sm={6} md={6} style={{padding: '1em'}}> 
+                                    <Stack 
+                                        spacing={1}
+                                        className="center"
+                                    >
+                                        <Typography variant="p" className="description" style={{marginBottom: '1em'}}>{t('header.about.description')}</Typography>
+                                        <img src={signature} className="signature"/>
+                                    </Stack>
+                                </Grid>
+                            </Grid> :
                             <Stack spacing={1} style={{width: deviceType === 'desktop' ? '50%' : '100%'}}>
                                 {
                                     techs.map((tech, index) => (

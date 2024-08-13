@@ -80,6 +80,13 @@ button {
     text-align: left;
 }
 
+.right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+}
+
 .selected {
     background: var(--accent-color-green) !important;
     color: white !important;

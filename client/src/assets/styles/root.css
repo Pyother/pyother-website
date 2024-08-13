@@ -16,7 +16,7 @@ body {
     --accent-color-green: #00d67d;
     --accent-color-blue: #91b9fc;
     --text-primary-color: white;
-    --text-secondary-color: grey;
+    --text-secondary-color: grey !important;
     --border-radius: 0.5em;
     --sections-margin: 1em 0em;
     --items-margin: 0.5em 0em;

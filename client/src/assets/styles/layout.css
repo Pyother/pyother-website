@@ -8,7 +8,7 @@
 @import './components_styles/footer.css';
 
 .header {
-    background-color: var(--primary-bg);
+    background: linear-gradient(to top, var(--secondary-bg), var(--primary-bg));
     color: white;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .footer {
-    background-color: var(--primary-bg);
+    background: linear-gradient(to top, var(--primary-bg), var(--secondary-bg));
     color: white;
 }
 
