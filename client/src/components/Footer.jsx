@@ -30,6 +30,9 @@ import { useTranslation } from 'react-i18next';
 // * Own components:
 import { SectionHeadline } from './layout_components/SectionHeadline';
 
+// * Services:
+import sendEmail from '../services/mail/mailService';
+
 export const Footer = () => {
 
     const { t } = useTranslation();
@@ -185,6 +188,7 @@ export const Footer = () => {
                                             emailFeature.message && 
                                             emailFeature.email && 
                                             emailFeature.topic ) {
+                                                sendEmail(emailFeature.email, emailFeature.topic, emailFeature.message);
                                                 dispatch(eraseAll());
                                                 setMessageSent(true);
                                                 handleSend();
