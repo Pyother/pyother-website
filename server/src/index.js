@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const createRoutes = require('./routes');
 require('dotenv').config();
 
@@ -13,6 +14,7 @@ const port = 3001;
 
 // * CORS:
 app.use(cors());
+app.use(bodyParser.json());
 app.use(express.json());
 
 // * Moongoose:

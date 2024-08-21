@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
 const getRecords = require('./services/db_services/getRecords');
-const authenticateToken = require('./middleware/authenticateToken');
 const sendMail = require('./services/mail/mailService');
 
 const createRoutes = (app) => {
@@ -22,17 +21,11 @@ const createRoutes = (app) => {
         response.json(records);
     });
 
-    app.post('/api/send-email', authenticateToken, async (request, response) => {
-        const mailOptions = {
-            from: request.body.email,
-            to: 'piotr.dominik.sobol@gmail.com',
-            subject: request.body.topic,
-            text: request.body.message
-        };
-        sendMail(mailOptions);
+    app.post('/api/send-email', async (request, response) => {
+        console.log(request.body);
+        sendMail(request.body);
         response.json({ message: 'Email sent' });
     });
-    
 }
 
 module.exports = createRoutes;
