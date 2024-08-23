@@ -19,11 +19,12 @@
         "about": {
             "title": "O mnie",
             "subtitle": "Poznaj moje doświadczenie, umiejętności i pasje. Dowiedz się, co mnie napędza.",
-            "description": "Jestem pełnym pasji studentem oraz developerem, który stale poszukuje nowych wyzwań. Od dwóch lat zajmuję się tworzeniem stron internetowych, zarówno od strony backendu, jak i frontendu. Podchodzę do mojej pracy z dozą fantazji, starając się łączyć funkcjonalność z estetyką. Swoją pracę łączę z pasją do systemów wbudowanych, tworząc zintegrowane interfejsy czasu rzeczywistego. Cenię sobie przejrzystość i prostotę w działaniu, wierząc, że najefektywniejsze rozwiązania często tkwią w ich eleganckiej prostocie. 🫡 Zachęcam do współpracy! 😎",
+            "description1": "Jestem pełnym pasji studentem oraz developerem, który stale poszukuje nowych wyzwań. Od dwóch lat zajmuję się tworzeniem stron internetowych, zarówno od strony backendu, jak i frontendu. Swoją pracę łączę z pasją do elektroniki oraz mikrokontrolerów. Cenię sobie przejrzystość i prostotę w działaniu, wierząc, że najefektywniejsze rozwiązania często tkwią w ich eleganckiej prostocie.",
+            "description2": "Jeżeli potrzebujesz profesjonalnego internetowego portfolio lub chciałbyś założyć własną stronę internetową, to trafiłeś we właściwe miejsce. Zachęcam Cię do współpracy ze mną i zapoznania się z moimi projektami!",
             "skills": {
                 "react_description": "Zajmuję się projektowaniem, wdrażaniem i utrzymywaniem różnorodnych aplikacji React. Dbam o sprawne zarządzanie stanem aplikacji, design, dynamiczne testowanie oraz wdrożenia. Na co dzień korzystam z technologii Redux, Material UI, REST API, GraphQL oraz React Native.",
-                "nodejs_description": "Tworzę backendowe aplikacje w Node.js. Zajmuję się zarządzaniem bazami danych, tworzeniem API oraz serwerów. W swojej pracy korzystam z technologii Express.js, MongoDB, Mongoose, REST API oraz GraphQL.",
-                "javascript_description": "Znam JavaScript od podstaw. Zajmuję się tworzeniem skryptów, aplikacji webowych oraz serwerowych. W swojej pracy korzystam z technologii ES6, TypeScript, Babel, Webpack oraz NPM.",
+                "nodejs_description": "Tworzę backendowe aplikacje w Node.js, zarządzam bazami danych, tworzę API oraz serwery, wykorzystując technologie takie jak Express.js, MongoDB, Mongoose, REST API oraz GraphQL.",
+                "javascript_description": "Zajmuję się programowaniem skryptów oraz tworzeniem aplikacji internetowych i serwerowych, wykorzystując technologie takie jak ES6, TypeScript, Babel, Webpack oraz NPM.",
                 "related_projects": "Powiązane projekty",
                 "related_projects_lowercase": "powiązane projekty",
                 "related_projects_lowercase_multiple": "powiązanych projektów",

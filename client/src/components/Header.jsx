@@ -359,10 +359,11 @@ export const Header = () => {
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6} style={{padding: '1em'}}> 
                                     <Stack 
-                                        spacing={1}
+                                        spacing={2}
                                         className="center"
                                     >
-                                        <Typography variant="p" className="description" style={{marginBottom: '1em'}}>{t('header.about.description')}</Typography>
+                                        <Typography variant="p" className="description">{t('header.about.description1')}</Typography>
+                                        <Typography variant="p" className="description">{t('header.about.description2')}</Typography>
                                         <img src={signature} className="signature"/>
                                     </Stack>
                                 </Grid>
@@ -403,8 +404,8 @@ export const Header = () => {
                                     <Grid item xs={12} sm={6} md={4} key={service._id}> 
                                         <ServiceItem 
                                             key={index} 
-                                            name={service.name_pl} 
-                                            description={service.description_pl} 
+                                            name={language === 'pl' ? service.name_pl : service.name_en} 
+                                            description={language === 'pl' ? service.description_pl : service.description_en} 
                                             photo={service.photo} 
                                         /> 
                                     </Grid>

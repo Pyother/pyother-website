@@ -10,7 +10,9 @@ export const selectedTechnologiesSlice = createSlice({
             state.value = action.payload;
         },
         pushTechnology: (state, action) => {
-            state.value.push(action.payload);
+            if (!state.value.includes(action.payload) && action.payload !== '') {
+                state.value.push(action.payload);
+            }
             document.getElementById('projects').scrollIntoView({behavior: 'smooth'});
         },
         removeTechnology: (state, action) => {

@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const url = "http://localhost:3001";
+
 const sendEmail = (email, topic, message) => {
     const mailOptions = {
         from: email,
@@ -8,7 +10,7 @@ const sendEmail = (email, topic, message) => {
         text: `${message} \n\nNadawca wiadomości: ${email}`
     }
 
-    axios.post('http://localhost:3001/api/send-email', mailOptions);
+    axios.post(`${url}/api/send-email`, mailOptions);
 }
 
 export default sendEmail;

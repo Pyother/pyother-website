@@ -1,6 +1,6 @@
 const fetchData = async (setProjectsData, setProjectsStatus, setServicesData, setServicesStatus, dispatch) => {
     
-    const url = 'http://localhost:3001';
+    const url = "http://localhost:3001";
 
     try {
         const projectsResponse = await fetch(`${url}/api/projects`);

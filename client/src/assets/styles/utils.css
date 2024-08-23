@@ -2,6 +2,10 @@ button {
     box-shadow: none !important;
 }
 
+img {
+    user-select: none;
+}
+
 .icon {
     color: white !important;
 }
