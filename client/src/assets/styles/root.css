@@ -21,6 +21,8 @@ body {
     --sections-margin: 1em 0em;
     --items-margin: 0.5em 0em;
     --line-height: 1.5em;
+    --border: 1px solid var(--tertiary-bg);
+    --box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
 }
 
 .app {

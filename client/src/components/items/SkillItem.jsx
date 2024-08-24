@@ -28,7 +28,7 @@ import { useTranslation } from 'react-i18next';
 
 const SkillItem = ({ name, possibleNames, description }) => {
 
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const dispatch = useDispatch();
     const projectsData = useSelector(state => state.projectsData.projects);
     const iconData = findIcon(possibleNames[0]);
@@ -71,10 +71,13 @@ const SkillItem = ({ name, possibleNames, description }) => {
                         <Stack spacing={1} direction="row" style={{flexWrap: 'wrap'}}>
                             {
                                 countTechOccurrences(possibleNames, projectsData).projects.map(project => {
+
+                                    console.log(project);
+
                                     return (
                                         <Chip 
                                             key={project.id}
-                                            label={project.project_name}
+                                            label={ i18n.language === 'pl' ? project.name_pl : project.name_en }
                                             className='chip'
                                             clickable
                                             onClick={() => {

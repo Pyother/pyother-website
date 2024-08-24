@@ -10,7 +10,8 @@ const countTechOccurrences = (possibleTechNamesArray, techArray) => {
             counter.occurences++;
             counter.projects.push({
                 id: item._id,
-                project_name: item.name
+                name_pl: item.name_pl,
+                name_en: item.name_en
             })
         }
     })

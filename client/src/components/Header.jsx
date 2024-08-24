@@ -395,17 +395,19 @@ export const Header = () => {
                             container
                             spacing={3} 
                             style={{width: '100%', marginBottom: '2em'}}
+                            alignItems="stretch"
                         >
                             {
                                 servicesData.status === 'idle' ? 
                                 <StyledSkeleton type="dark"/> : 
                                 servicesData.status === 'success' ? 
                                 servicesData.services.map((service, index) => (
-                                    <Grid item xs={12} sm={6} md={4} key={service._id}> 
+                                    <Grid item xs={12} sm={6} md={4} key={service._id} style={{display: 'flex'}}> 
                                         <ServiceItem 
                                             key={index} 
                                             name={language === 'pl' ? service.name_pl : service.name_en} 
                                             description={language === 'pl' ? service.description_pl : service.description_en} 
+                                            graphicSource={service.graphic_source}
                                             photo={service.photo} 
                                         /> 
                                     </Grid>

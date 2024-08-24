@@ -66,6 +66,7 @@ const addService = async () => {
         name_en: null,
         description_pl: null,
         description_en: null,
+        graphic_source: null,
         link: null,
         photo: null,
     };
@@ -83,8 +84,11 @@ const addService = async () => {
                     service.description_en = description_en;
                     rl.question('↪ Link do usługi: ', async (link) => {
                         service.link = link;
-                        rl.question('↪ Podaj nazwę grafiki (bez rozszerzenia): ', async (imageName) => {
-                            findImage(imageName, service, servicesCollection);
+                        rl.question('↪ Podaj nazwę źródła grafiki: ', (graphic_source) => {
+                            service.graphic_source = graphic_source;
+                            rl.question('↪ Podaj nazwę grafiki (bez rozszerzenia): ', async (imageName) => {
+                                findImage(imageName, service, servicesCollection);
+                            });
                         });
                     });
                 });
@@ -102,11 +106,14 @@ const addProject = async () => {
 
     let project = {
         _id: new ObjectId(), 
-        name: null,
-        description: null,
+        name_pl: null,
+        name_en: null,
+        description_pl: null,
+        description_en: null,
         technologies: null,
         github: null,
         public: null,
+        graphic_source: null,
         photo: null,
         last_commit: null,
     };
@@ -114,30 +121,44 @@ const addProject = async () => {
     logWithColor('================== NOWY REKORD ==================', 'bgWhite');
     console.log();
 
-    rl.question('↪ Nazwa projektu: ', (name) => {
-        project.name = name;
-        rl.question('↪ Opis: ', (description) => {
-            project.description = description;
-            rl.question('↪ Wykorzystane technologie (np. js python -> oddzielone spacją): ', (technologies) => {
-                project.technologies = technologies.split(' ');
-                rl.question('↪ Link do repozytorium na Githubie: ', (github) => {
-                    project.github = github;
-                    rl.question('↪ Status (true/false): ', (status) => {
-                        if(parseBoolean(status) !== true && parseBoolean(status) !== false) {
-                            logWithColor('Status musi mieć wartość logiczną.', 'red');
-                            process.exit(0);
-                        } else {
-                            project.status = parseBoolean(status);
-                        }
-                        rl.question('↪ Czy projekt jest publiczny (true/false): ', (public) => {
-                            if(parseBoolean(public) !== true && parseBoolean(public) !== false) {
-                                logWithColor('Status musi mieć wartość logiczną.', 'red');
-                                process.exit(0);
-                            } else {
-                                project.public = parseBoolean(public);
-                            }
-                            rl.question('↪ Podaj nazwę grafiki: ', async (imageName) => {
-                                findImage(imageName, project, projectsCollection);
+    rl.question('↪ Nazwa projektu (PL): ', (name_pl) => {
+        project.name_pl = name_pl;
+        rl.question('↪ Nazwa projektu (EN): ', (name_en) => {
+            project.name_en = name_en;
+            rl.question('↪ Opis (PL): ', (description_pl) => {
+                project.description_pl = description_pl;
+                rl.question('↪ Opis (EN): ', (description_en) => {
+                    project.description_en = description_en;
+                    rl.question('↪ Wykorzystane technologie (np. js python -> oddzielone spacją): ', (technologies) => {
+                        project.technologies = technologies.split(' ');
+                        rl.question('↪ Link do repozytorium na Githubie: ', (github) => {
+                            project.github = github;
+                            rl.question('↪ Status (true/false): ', (status) => {
+                                if (parseBoolean(status) !== true && parseBoolean(status) !== false) {
+                                    logWithColor('Status musi mieć wartość logiczną.', 'red');
+                                    process.exit(0);
+                                } else {
+                                    project.status = parseBoolean(status);
+                                }
+                                rl.question('↪ Czy projekt jest publiczny (true/false): ', (public) => {
+                                    if (parseBoolean(public) !== true && parseBoolean(public) !== false) {
+                                        logWithColor('Status musi mieć wartość logiczną.', 'red');
+                                        process.exit(0);
+                                    } else {
+                                        project.public = parseBoolean(public);
+                                    }
+                                    rl.question('↪ Podaj nazwę źródła grafiki: ', (graphic_source) => {
+                                        project.graphic_source = graphic_source;
+                                        rl.question('↪ Podaj nazwę grafiki: ', async (imageName) => {
+                                            
+                                            await findImage(imageName, project, projectsCollection);
+
+                                            await projectsCollection.insertOne(project);
+                                            logWithColor('Projekt został pomyślnie dodany.', 'green');
+                                            rl.close();
+                                        });
+                                    });
+                                });
                             });
                         });
                     });

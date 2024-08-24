@@ -35,7 +35,7 @@ import { useTranslation } from 'react-i18next';
 export const Content = () => {
 
     const dispatch = useDispatch();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const projectsData = useSelector(state => state.projectsData);
     const selectedTechnologies = useSelector(state => state.selectedTechnologies.value) || [];
     const [sortDialogOpen, setSortDialogOpen] = useState(false);
@@ -290,19 +290,20 @@ export const Content = () => {
                 {
                     (projectsData.status === 'idle' || projectsData.status === 'error') ?
                     <StyledSkeleton type='dark' /> : 
-                    <Grid container spacing={3}>
+                    <Grid container spacing={3} alignItems="stretch">
                         {sortedProjects.map((project) => (
-                            <Grid item xs={12} sm={6} md={4} key={project._id}>
+                            <Grid item xs={12} sm={6} md={4} key={project._id} style={{display: 'flex'}}>
                                 <ProjectItem
                                     id={project._id}
-                                    name={project.name}
-                                    description={project.description}
+                                    name={ i18n.language === 'pl' ? project.name_pl : project.name_en }
+                                    description={ i18n.language === 'pl' ? project.description_pl : project.description_en }
                                     photo={project.photo}
                                     technologies={project.technologies}
                                     githubPage={project.github}
                                     isPublic={project.public}
                                     status={project.status}
                                     lastCommit={project.last_commit}
+                                    graphicSource={project.graphic_source}
                                     onTechnologyClick={(technology) => {
                                         if (!selectedTechnologies.includes(technology)) {
                                             setTempState((prevState) => ({

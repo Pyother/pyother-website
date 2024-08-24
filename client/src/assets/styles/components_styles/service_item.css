@@ -1,10 +1,12 @@
 .service-item {
     display: flex;
+    justify-content: space-between !important;
+    flex-direction: column;
     text-align: left;
-    padding: 1em;
     background-color: var(--secondary-bg);
     border-radius: var(--border-radius);
-    border: 2px solid var(--secondary-bg);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
     color: white;
 }
 

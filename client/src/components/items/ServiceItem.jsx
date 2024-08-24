@@ -21,7 +21,7 @@ import { useTranslation } from 'react-i18next';
 // * Own components:
 import { SectionHeadline } from '../layout_components/SectionHeadline';
 
-const ServiceItem = ({ name, description, photo }) => {
+const ServiceItem = ({ name, description, photo, graphicSource }) => {
 
     const { t } = useTranslation();
     const dispatch = useDispatch();
@@ -29,36 +29,34 @@ const ServiceItem = ({ name, description, photo }) => {
     return (
         <ThemeProvider theme={colorsTheme}>
             <Stack className="service-item center">
-                <div 
-                    className="photo-container center"
-                    style={{backgroundColor: 'inherit !important', marginBottom: '0'}}
-                >
-                    {photo && <img src={`data:image/jpeg;base64,${photo}`} alt={name} className="photo"
-                        style={{width: '3em', height: '3em'}}
-                    />}
-                </div>
-                <SectionHeadline 
-                    title={name}
-                    subtitle={description}
-                    section_id={name}
-                    position="center"
-                    fullMode={true}
-                />
-                <Chip 
-                    label={t('header.button_expand')}
-                    className="chip bg-green"
-                    clickable
+                <Stack style={{padding: '1em'}}>
+                    <div 
+                        className="photo-container center"
+                        style={{backgroundColor: 'inherit !important', marginBottom: '0'}}
+                        onClick={() => window.location.href = graphicSource } 
+                    >
+                        {photo && <img src={`data:image/jpeg;base64,${photo}`} alt={name} className="photo"
+                            style={{width: '5em', height: '5em'}}
+                        />}
+                    </div>
+                    <SectionHeadline 
+                        title={name}
+                        subtitle={description}
+                        section_id={name}
+                        position="center"
+                        fullMode={true}
+                    />
+                </Stack>
+                <div className="project-item-button center"
                     onClick={() => {
                         document.getElementById('footer').scrollIntoView({behavior: 'smooth'});
                         dispatch(setTopic(name));
                     }}
-                    style={{marginBottom: '1em'}}
-                    avatar={
-                        <Avatar className="avatar">
-                            <MdOutlineExpandMore style={{color: 'white'}} />
-                        </Avatar>
-                    }
-                />
+                >
+                    <p style={{fontSize: 'small'}}>
+                        {t('header.button_expand')}
+                    </p>
+                </div>
             </Stack>
         </ThemeProvider>
     );

@@ -1,8 +1,8 @@
 .project-item {
-    padding: 1em;
     margin-bottom: 1em;
-    /*border: var(--border);*/
-    border-radius: var(--border-radius);
+    border: var(--border);
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--box-shadow);
 }
 
 .project-title {
@@ -28,4 +28,18 @@
 
 .avatar {
     font-size: larger !important;
+}
+
+.project-item-button {
+    width: 100%;
+    background-color: var(--tertiary-bg);
+    position: relative;
+    border-radius: 0 0em 0.5em 0.5em;
+    color: var(--text-primary-color);
+    transition: all 0.3s ease;
+    cursor: alias;
+}
+
+.project-item-button:hover {
+    color: var(--accent-color-green);
 }
