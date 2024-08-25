@@ -21,6 +21,22 @@
     border-radius: var(--border-radius);
     background: linear-gradient(to top, var(--primary-bg), var(--tertiary-bg));
     object-fit: cover;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+}
+
+.border-left-80 {
+    position: relative;
+}
+
+.border-left-80::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 80%;
+    width: 1px;
+    background-color: grey;
 }
 
 .header-background {
@@ -81,6 +97,16 @@
     .portrait {
         width: 100%;
         height: 100%;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+    .portrait {
+        width: 60% !important;
+    }
+    .portrait-container {
+        display: flex;
+        justify-content: center !important;
     }
 }
 

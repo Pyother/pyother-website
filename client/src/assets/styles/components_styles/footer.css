@@ -2,6 +2,8 @@
     color: white !important;
     background-color: var(--secondary-bg) !important;
     border-radius: var(--border-radius) !important;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
 }
 
 .textfield .MuiInputLabel-root {

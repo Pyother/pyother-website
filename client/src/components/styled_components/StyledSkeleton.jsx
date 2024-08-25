@@ -1,41 +1,34 @@
 import React from 'react';
-import { Stack, Skeleton } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
-import colorsTheme from '../../assets/themes/colorsTheme';
+import { Stack } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+
+// * Lotties:
+import Lottie from 'react-lottie';
+import * as animationData from  '../../assets/lotties/hourglass_animation.json';
 
 const StyledSkeleton = ({ type }) => {
+
+    const { t } = useTranslation();
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true, 
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+        }
+    };
+
     return (
-        <ThemeProvider theme={colorsTheme}>
-            <Stack direction="row" spacing={4} sx={{ width: '100%' }}>
-                {[1, 2, 3].map((columnIndex) => (
-                    <Stack key={columnIndex} spacing={2} direction="column" sx={{ flex: 1 }}>
-                        <Stack direction="row" spacing={2} alignItems="center">
-                            <Skeleton
-                                className='skeleton'
-                                sx={{ bgcolor: type === 'dark' ? 'tertiary.main' : 'light.main', width: 50, height: 50, borderRadius: '50%' }}
-                                animation="wave"
-                                variant='circular'
-                            />
-                            <Skeleton
-                                className='skeleton'
-                                sx={{ bgcolor: type === 'dark' ? 'tertiary.main' : 'light.main', flexGrow: 1, width: 'fit-content' }}
-                                animation="wave"
-                                variant='rounded'
-                            />
-                        </Stack>
-                        {[1, 2, 3].map((item) => (
-                            <Skeleton
-                                key={item}
-                                className='skeleton'
-                                sx={{ bgcolor: type === 'dark' ? 'tertiary.main' : 'light.main',  }}
-                                animation="wave"
-                                variant='rounded'
-                            />
-                        ))}
-                    </Stack>
-                ))}
-            </Stack>
-        </ThemeProvider>
+        <Stack spacing={2} className="center">
+            <Lottie 
+                options={defaultOptions}
+                isStopped={false}
+                isPaused={false}
+                style={{width: '10em'}}
+            />
+            <p style={{color: 'var(--text-secondary-color)', margin: '0', fontWeight: 'bold'}}>{t('loading')}...</p>
+        </Stack>
     );
 }
 

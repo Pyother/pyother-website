@@ -68,6 +68,8 @@
         "social_media": {
             "title": "Social media",
             "subtitle": "Follow me on social media to stay up to date with my latest projects and activities."
-        }
-    }
+        },
+        "flaticons_about": "The icons used on the website come from the FlatIcons service and were created by the designer Super Icons."
+    },
+    "loading": "Loading data"
 }

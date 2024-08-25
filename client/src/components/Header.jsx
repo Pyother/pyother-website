@@ -344,6 +344,7 @@ export const Header = () => {
                                 currentTab === 0 ? setCurrentTab(1) : setCurrentTab(0);
                             }} 
                             indicatorColor=""
+                            style={{marginTop: '1em'}}
                         >
                             <Tab label={t('header.button_whoami')} className="tab" value={0}/>
                             <Tab label={t('header.button_skills')} className="tab" value={1}/>
@@ -352,15 +353,19 @@ export const Header = () => {
                         {
                             currentTab === 0 ? 
                             <Grid container>
-                                <Grid item xs={12} sm={6} md={6} className="center" style={{padding: '1em', display: 'flex', alignItems: 'start', 
+                                <Grid 
+                                    item xs={12} sm={12} md={6} className="portrait-container center" 
+                                    style={{padding: '1em', display: 'flex', alignItems: 'start', 
                                         justifyContent: 'flex-end'
-                                    }}>
+                                    }}
+                                >
                                     <img src={portrait} className="portrait"/>
                                 </Grid>
-                                <Grid item xs={12} sm={6} md={6} style={{padding: '1em'}}> 
+                                <Grid item xs={12} sm={12} md={6} style={{padding: '1em'}}> 
                                     <Stack 
                                         spacing={2}
                                         className="center"
+                                        style={{marginBottom: '1em'}}
                                     >
                                         <Typography variant="p" className="description">{t('header.about.description1')}</Typography>
                                         <Typography variant="p" className="description">{t('header.about.description2')}</Typography>

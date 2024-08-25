@@ -88,7 +88,7 @@ export const Footer = () => {
 
     return (
         <ThemeProvider theme={colorsTheme}>
-            <Stack className="footer center" spacing={2}>
+            <Stack className="footer center" spacing={2} style={{textAlign: 'center'}}>
                 <SectionHeadline 
                     title={t('footer.title')} 
                     subtitle={t('footer.subtitle')} 
@@ -96,7 +96,12 @@ export const Footer = () => {
                     position="center"
                 />
                 <Grid container>
-                    <Grid item xs={12} sm={6} md={6}>
+                    <Grid item xs={12} sm={6} md={6}
+                        style={{
+                            paddingRight: deviceType === 'mobile' ? '0' : '2em',
+                            paddingBottom: deviceType === 'mobile' ? '1em' : '0',
+                        }}
+                    >
                         <Stack spacing={2} className="textfields-container center">
                             <TextField
                                 id="footer-email"
@@ -202,18 +207,13 @@ export const Footer = () => {
                             </Grid>
                         </Stack>
                     </Grid>
-                    <Grid item xs={12} sm={0.5} md={0.5}>
-                        <Divider 
-                            orientation={ deviceType === 'mobile' ? 'horizontal' : 'vertical' }
-                            sx={{ 
-                                borderColor: colorsTheme.palette.textSecondary.main, 
-                                height: '80%' 
-                            }} 
-                            style={{ margin: deviceType === 'mobile' ? '0.75em 0' : '0 1em' }}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={5.5} md={5.5}
-                        style={{ marginTop: deviceType === 'mobile' ? '2em' : '0' }}
+                    <Grid item xs={12} sm={6} md={6}
+                        className={deviceType === 'mobile' ? '' : 'border-left-80'}
+                        style={{ 
+                            paddingTop: deviceType === 'mobile' ? '1em' : '0',
+                            paddingLeft: deviceType === 'mobile' ? '0' : '1em',
+                            borderTop: deviceType === 'mobile' ? '1px solid grey' : 'none'
+                        }}
                     >
                         <Stack spacing={2} className="social-media-container">
                             {
@@ -263,6 +263,9 @@ export const Footer = () => {
                         </Stack>
                     </Grid>
                 </Grid>
+                <p style={{fontSize: 'small', color: 'var(--text-secondary-color)', marginTop: '3em'}}>
+                    {t('footer.flaticons_about')}
+                </p>
             </Stack>
         </ThemeProvider>
     )  

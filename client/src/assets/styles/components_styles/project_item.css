@@ -1,5 +1,4 @@
 .project-item {
-    margin-bottom: 1em;
     border: var(--border);
     border-radius: var(--border-radius) !important;
     box-shadow: var(--box-shadow);

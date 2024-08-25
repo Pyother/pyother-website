@@ -68,6 +68,8 @@
         "social_media": {
             "title": "Media społecznościowe",
             "subtitle": "Śledź moje projekty i aktualności w mediach społecznościowych."
-        }
-    }
+        }, 
+        "flaticons_about": "Wykorzysatne na stronie internetowej ikony pochodzą z serwisu FlatIcons i zostały stworzone przez twórcę Super Icons."
+    },
+    "loading": "Trwa wczytywanie danych"
 }

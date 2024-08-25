@@ -188,9 +188,88 @@ export const Content = () => {
                     section_id="projects"
                     position="center"
                 />
-                <Grid container style={{padding: '1em 1em 0em 1em'}}>
+                <Grid container style={{paddingBottom: '1.5em'}}>
                     <Grid item xs={7} md={7}>
-
+                    {
+                        !actualState.ascendingSort && !actualState.descendingSort && selectedTechnologies.length === 0 ? 
+                        <></> :
+                        <>
+                            <Stack 
+                                direction="row" 
+                                spacing={1} 
+                                style={{ padding: '0 0.5em', marginBottom: '1em', display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}
+                            >
+                                <Typography variant="p">Filtry</Typography>
+                                <Chip
+                                    className="chip"
+                                    clickable
+                                    avatar={
+                                        <Avatar className="avatar icon" style={{background: 'inherit !important'}}>
+                                            <TbClearAll />
+                                        </Avatar>
+                                    }
+                                    label="Wyczyść"
+                                    style={{background: 'inherit !important', color: 'grey'}}
+                                    onClick={() => {
+                                        setActualState({
+                                            technologies: [],
+                                            ascendingSort: false,
+                                            descendingSort: false
+                                        });
+                                        dispatch(setSelectedTechnologies([]));
+                                        setTempState({
+                                            technologies: [],
+                                            ascendingSort: false,
+                                            descendingSort: false
+                                        });
+                                    }}
+                                />
+                            </Stack>
+                            <Stack 
+                                direction="row" 
+                                spacing={1} 
+                                style={{display: 'flex', alignItems: 'center'}}
+                            >
+                                {
+                                actualState.technologies.map((technology) => {
+                                    const iconData = findIcon(technology.toLowerCase());
+                                        if (iconData) {
+                                            const { icon: IconComponent, backgroundColor, color } = iconData;
+                                            return (
+                                                <Chip
+                                                    className="chip"
+                                                    clickable
+                                                    key={technology}
+                                                    avatar={
+                                                        <Avatar style={{ backgroundColor, fontSize: 'larger' }}>
+                                                            <IconComponent style={{ color }} />
+                                                        </Avatar>
+                                                    }
+                                                    label={technology}
+                                                    variant="outlined"
+                                                    style={{ 
+                                                        marginBottom: '0.5em'
+                                                    }}
+                                                    deleteIcon={<ClearIcon className="icon"/>}
+                                                    onDelete={() => {
+                                                        setTempState((prevState) => ({
+                                                            ...prevState,
+                                                            technologies: prevState.technologies.filter((tech) => tech !== technology)
+                                                        }));
+                                                        setActualState((prevState) => ({
+                                                            ...prevState,
+                                                            technologies: prevState.technologies.filter((tech) => tech !== technology)
+                                                        }));
+                                                        dispatch(setSelectedTechnologies(selectedTechnologies.filter((tech) => tech !== technology)));
+                                                    }}
+                                                />
+                                            )
+                                        } else return <></>
+                                    })
+                                }
+                            </Stack>
+                        </>
+                    }
                     </Grid>
                     <Grid item xs={5} md={5}>
                         <Chip
@@ -207,86 +286,6 @@ export const Content = () => {
                         />
                     </Grid>
                 </Grid>
-                {
-                    !actualState.ascendingSort && !actualState.descendingSort && selectedTechnologies.length === 0 ? 
-                    <></> :
-                    <>
-                        <Stack 
-                            direction="row" 
-                            spacing={1} 
-                            style={{padding: '0em 1em', marginBottom: '1em', display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}
-                        >
-                            <Typography variant="p">Filtry</Typography>
-                            <Chip
-                                className="chip"
-                                clickable
-                                avatar={
-                                    <Avatar className="avatar icon" style={{background: 'inherit !important'}}>
-                                        <TbClearAll />
-                                    </Avatar>
-                                }
-                                label="Wyczyść"
-                                style={{background: 'inherit !important', color: 'grey'}}
-                                onClick={() => {
-                                    setActualState({
-                                        technologies: [],
-                                        ascendingSort: false,
-                                        descendingSort: false
-                                    });
-                                    dispatch(setSelectedTechnologies([]));
-                                    setTempState({
-                                        technologies: [],
-                                        ascendingSort: false,
-                                        descendingSort: false
-                                    });
-                                }}
-                            />
-                        </Stack>
-                        <Stack 
-                            direction="row" 
-                            spacing={1} 
-                            style={{padding: '0em 1em', marginBottom: '1em', display: 'flex', alignItems: 'center'}}
-                        >
-                            {
-                            actualState.technologies.map((technology) => {
-                                const iconData = findIcon(technology.toLowerCase());
-                                    if (iconData) {
-                                        const { icon: IconComponent, backgroundColor, color } = iconData;
-                                        return (
-                                            <Chip
-                                                className="chip"
-                                                clickable
-                                                key={technology}
-                                                avatar={
-                                                    <Avatar style={{ backgroundColor, fontSize: 'larger' }}>
-                                                        <IconComponent style={{ color }} />
-                                                    </Avatar>
-                                                }
-                                                label={technology}
-                                                variant="outlined"
-                                                style={{ 
-                                                    marginBottom: '0.5em'
-                                                }}
-                                                deleteIcon={<ClearIcon className="icon"/>}
-                                                onDelete={() => {
-                                                    setTempState((prevState) => ({
-                                                        ...prevState,
-                                                        technologies: prevState.technologies.filter((tech) => tech !== technology)
-                                                    }));
-                                                    setActualState((prevState) => ({
-                                                        ...prevState,
-                                                        technologies: prevState.technologies.filter((tech) => tech !== technology)
-                                                    }));
-                                                    dispatch(setSelectedTechnologies(selectedTechnologies.filter((tech) => tech !== technology)));
-                                                }}
-                                            />
-                                        )
-                                    } else return <></>
-                                })
-                            }
-                        </Stack>
-                    </>
-                }
                 {
                     (projectsData.status === 'idle' || projectsData.status === 'error') ?
                     <StyledSkeleton type='dark' /> : 
